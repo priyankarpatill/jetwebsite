@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why Choose Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #ffffff;
+    }
+
+    .why-choose-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .jet-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .jet-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .why-content {
+      flex: 1;
+      padding-left: 40px;
+    }
+
+    .why-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #1a3c7b;
+      margin-bottom: 10px;
+    }
+
+    .why-content h4 {
+      font-size: 16px;
+      font-weight: normal;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .reason {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .reason img {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      margin-top: 3px;
+    }
+
+    .reason-text {
+      max-width: 450px;
+    }
+
+    .reason-text h5 {
+      font-size: 15px;
+      margin: 0;
+      color: #1a3c7b;
+      font-weight: 600;
+    }
+
+    .reason-text p {
+      font-size: 13px;
+      color: #555;
+      margin: 5px 0 0;
+      line-height: 1.5;
+    }
+
+    .bottom-bar {
+      background-color: #0a2147;
+      height: 40px;
+      width: 100%;
+      margin-top: 60px;
+      background-image: url('https://i.ibb.co/xmPMmvB/pattern.png'); /* Optional pattern overlay */
+      background-repeat: repeat;
+    }
+
+    @media (max-width: 768px) {
+      .why-choose-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .why-content {
+        padding: 20px 0 0;
+      }
+
+      .reason {
+        justify-content: center;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="why-choose-section">
+    <div class="jet-image">
+      <img src="https://i.ibb.co/qJYB83T/jet-top.png" alt="Jet Top View" />
+    </div>
+    <div class="why-content">
+      <h2>Why Choose Us?</h2>
+      <h4>Prestige Jets stands out with</h4>
+
+      <div class="reason">
+        <img src="https://img.icons8.com/ios-filled/50/1a3c7b/airplane-take-off.png" alt="Jet Icon">
+        <div class="reason-text">
+          <h5>Access to 2,400+ safety-vetted jets</h5>
+          <p>A wide selection of top-tier, safety-certified jets for your convenience and peace of mind.</p>
+        </div>
+      </div>
+
+      <div class="reason">
+        <img src="https://img.icons8.com/ios-filled/50/1a3c7b/airplane-take-off.png" alt="Jet Icon">
+        <div class="reason-text">
+          <h5>Fixed quarterly returns for investors</h5>
+          <p>Enjoy reliable and consistent returns on your investment every quarter.</p>
+        </div>
+      </div>
+
+      <div class="reason">
+        <img src="https://img.icons8.com/ios-filled/50/1a3c7b/airplane-take-off.png" alt="Jet Icon">
+        <div class="reason-text">
+          <h5>Transparent and secure investment options</h5>
+          <p>Our investment opportunities are designed for clarity and security, giving you confidence in every decision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-bar"></div>
+
+</body>
+</html>
