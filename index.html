@@ -6,12 +6,95 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <title>Prestige Jets</title>
   <style>
-    * {
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+  
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      background-color: white;
+      border-bottom: 2px solid #d3d3d3;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  
+    .logo img {
+      height: 40px;
+    }
+  
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #003f91;
+    }
+  
+    .subtitle {
+      font-size: 0.8em;
+      color: #555;
+    }
+  
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
+  
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      position: relative;
+    }
+  
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #003f91;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s;
+    }
+  
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+  
+    .invest-btn {
+      background-color: #003f91;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .invest-btn:hover {
+      background-color: #002c6a;
+    }
+  
+ 
 
     header {
       display: flex;
@@ -28,20 +111,7 @@
       gap: 10px;
     }
 
-    .logo img {
-      height: 40px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    nav ul li {
-      font-size: 16px;
-      font-weight: 500;
-    }
+   
 
     .invest-btn {
       background-color: #004AAD;
@@ -238,7 +308,7 @@
     }
 
     .why-content h4 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: normal;
       color: #333;
       margin-bottom: 30px;
@@ -251,8 +321,8 @@
     }
 
     .reason img {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       margin-right: 15px;
       margin-top: 3px;
     }
@@ -307,13 +377,13 @@
 
     .hero-section {
       /* background-color: #0a2147; */
-      background-image: url('./pristage.jpg'); /* Optional pattern */
+      background-image: url('./img/background-imf.png'); /* Optional pattern */
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       color: #e0d6c7;
       text-align: center;
-      padding: 100px 20px;
+      padding: 90px 20px;
     }
 
     .hero-section h1 {
@@ -368,7 +438,7 @@
 }
 
 .next-steps h2 {
-  font-size: 26px;
+  font-size: 40px;
   color: #0a2147;
   letter-spacing: 1px;
   font-family: 'Playfair Display', serif;
@@ -457,92 +527,391 @@
   </style>
 </head>
 <body>
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
+        <div class="logo" style="display: flex; align-items: center;">
+          <img src="./img/logo.png" alt="Logo" style="height: 80px; width: 90px;">
+        </div>
+      
+        <!-- Wrap NAV + Button Together -->
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <nav>
+            <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; padding: 0; margin: 0;">
+              <li><a href="index.html" style="text-decoration: none; color: black;  font-weight: bold;">HOME</a></li>
+              <li><a href="about.html" style="text-decoration: none; color: black;  font-weight: bold;">ABOUT US</a></li>
+              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
+              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
+              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li>
+              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
+              <li><a href="#" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
+            </ul>
+          </nav>
+      
+          <button class="invest-btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            INVEST NOW
+          </button>
+        </div>
+      </header>
+      
 
-  <header>
-    <div class="logo">
-      <img src="https://i.ibb.co/yqJwG2K/logo.png" alt="Logo">
-      <span><strong>PRESTIGE JETS</strong><br><small>Round The Clock, Around The Globe</small></span>
-    </div>
-    <nav>
-      <ul>
-        <li>HOME</li>
-        <li>ABOUT US</li>
-        <li>SERVICES</li>
-        <li>FLEET</li>
-        <li>INVESTMENTS</li>
-        <li>BOOKING</li>
-        <li>CONTACT US</li>
-      </ul>
-    </nav>
-    <button class="invest-btn">INVEST NOW</button>
-  </header>
+      <section class="hero">
+        <video autoplay muted loop playsinline class="background-video">
+          <source src="./img/vecteezy_dusseldorf-germany-july-23-2017-dassault-falcon-2000ex_11362630.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        
+        <div class="hero-content">
+          <h1>WORLD OF PRESTIGE JETS</h1>
+          <button class="explore-btn">EXPLORE</button>
+        </div>
+      </section>
+<style>
+    .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen */
+  overflow: hidden;
+}
 
-  <section class="hero">
-    <img src="./Carousel-Image-9HJAD-1-e1731498845401.jpg" alt="Jet Interior">
-    <div class="hero-content">
-      <h1>WORLD OF PRESTIGE JETS</h1>
-      <button class="explore-btn">EXPLORE</button>
-    </div>
-  </section>
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* Cover whole screen nicely */
+  z-index: -1; /* Send video behind text */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Keep text/buttons on top of video */
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+</style>      
 
   <!-- <div class="section-title">
     Prestige Jets: Redefining Luxury Travel
   </div> -->
-  <div class="container">
-    <h1 class="title">Prestige Jets: Redefining Luxury Travel <br>for Business and Leisure</h1>
-    <div class="divider"></div>
+  
+ <!-- Full Section Start -->
+<section class="jet-section">
+    <div class="container">
+        <h1 class="title">Prestige Jets: Redefining Luxury Travel <br>for Business and Leisure</h1>
+        <div class="divider"></div>
 
-    <div class="content-wrapper">
-      <div class="left-box">
-        <h3>PRIVATE JET CHARTER</h3>
-        <p>We provide aircraft charters to business professionals, to maximise their time efficiency. Today we provide aircraft charters to business professionals, to maximise their time efficiency.</p>
-        <a href="#">READ MORE</a>
-        <img src="./images1.jpg" alt="Jet Interior">
-      </div>
-      <div class="right-box">
-        <img src="./images.jpg" alt="Jet Runway">
-        <h3>HYBRID INVESTMENT MODEL</h3>
-        <p>We offer a unique hybrid investment model, enabling investors to maximize their financial returns. Our innovative approach combines secured annual returns with exclusive flight hours.</p>
-      </div>
+        <!-- First Block -->
+        <div class="jet-row">
+            <div class="jet-text">
+                <h2>PRIVATE JET CHARTER</h2>
+                <p>We provide aircraft charters to business professionals, to maximise their time efficiency.<br>
+                    Today we provide aircraft charters to business professionals, to maximise their time efficiency.
+                </p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="jet-image">
+                <img src="./img/images1.jpg" alt="Private Jet Charter">
+            </div>
+        </div>
+
+        <!-- Second Block -->
+        <div class="jet-row reverse overlap">
+            
+            <div class="jet-text">
+                <h2>HYBRID INVESTMENT MODEL</h2>
+                <p>We offer a unique hybrid investment model, enabling investors to maximize their financial returns.
+                    Our innovative approach combines secured annual returns with exclusive flight hours for global
+                    travel, providing a perfect balance of profit and luxury.</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="jet-image">
+                <img src="./img/images.jpg" alt="Hybrid Investment Model">
+            </div>
+        </div>
+
     </div>
-  </div>
+</section>
+
+<!-- CSS -->
+<style>
+/* Overall Section */
+.jet-section {
+    background: #f4f1ef;
+    padding: 80px 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    font-size: 32px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: #000;
+    margin: 0 auto 60px auto;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Rows */
+.jet-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Reverse for second block */
+.jet-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Overlap second block */
+.jet-row.overlap {
+    margin-top: -100px;
+}
+
+/* Text */
+.jet-text {
+    flex: 1;
+    min-width: 320px;
+    padding: 20px 40px;
+}
+
+.jet-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.jet-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.jet-text a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0078d7;
+    text-decoration: none;
+}
+
+.jet-text a:hover {
+    text-decoration: underline;
+}
+
+/* Image */
+.jet-image {
+    flex: 1;
+    min-width: 320px;
+    padding: 20px 40px;
+}
+
+.jet-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .jet-row,
+    .jet-row.reverse {
+        flex-direction: column;
+    }
+
+    .jet-text,
+    .jet-image {
+        padding: 20px 20px;
+        text-align: center;
+    }
+
+    .jet-row.overlap {
+        margin-top: 10;
+    }
+}
+</style>
 
 
-
-  <section class="why-choose-section">
-    <div class="jet-image">
-      <img src="./jet.jpg" alt="Jet Top View" />
-    </div>
-    <div class="why-content">
-      <h2>Why Choose Us?</h2>
-      <h4>Prestige Jets stands out with</h4>
-
-      <div class="reason">
-        <img src="https://img.icons8.com/ios-filled/50/1a3c7b/airplane-take-off.png" alt="Jet Icon">
-        <div class="reason-text">
-          <h5>Access to 2,400+ safety-vetted jets</h5>
-          <p>A wide selection of top-tier, safety-certified jets for your convenience and peace of mind.</p>
+<!-- Why Choose Us Section -->
+<section class="why-choose-section">
+    <div class="container">
+  
+      <div class="choose-row">
+  
+        <!-- Left Plane Image -->
+        <div class="choose-image">
+          <img src="./img/beechcraft-1-high-res-illustration_premier-1-top-final-1024x830-2.jpg" alt="Plane Image" style="height: 500px;">
         </div>
-      </div>
-
-      <div class="reason">
-        <img src="https://img.icons8.com/ios-filled/50/1a3c7b/airplane-take-off.png" alt="Jet Icon">
-        <div class="reason-text">
-          <h5>Fixed quarterly returns for investors</h5>
-          <p>Enjoy reliable and consistent returns on your investment every quarter.</p>
+  
+        <!-- Right Content -->
+        <div class="choose-content">
+          <h2 class="choose-title">Why Choose Us?</h2>
+          <div class="choose-divider"></div>
+          <p class="choose-subtitle">Prestige Jets stands out with</p>
+  
+          <div class="choose-features">
+            <div class="feature-item">
+              <img src="./img/download.png" alt="Icon" class="feature-icon">
+              <div class="feature-text">
+                <h4>Access to 2,400+ safety-vetted jets</h4>
+                <p>A wide selection of top-tier, safety-certified jets for your convenience and peace of mind.</p>
+              </div>
+            </div>
+  
+            <div class="feature-item">
+              <img src="./img/download.png" alt="Icon" class="feature-icon">
+              <div class="feature-text">
+                <h4>Fixed quarterly returns for investors</h4>
+                <p>Enjoy reliable and consistent returns on your investment every quarter.</p>
+              </div>
+            </div>
+  
+            <div class="feature-item">
+              <img src="./img/download.png" alt="Icon" class="feature-icon">
+              <div class="feature-text">
+                <h4>Transparent and secure investment options</h4>
+                <p>Our investment opportunities are designed for clarity and security, giving you confidence in every decision.</p>
+              </div>
+            </div>
+  
+          </div>
         </div>
+  
       </div>
-
-      <div class="reason">
-        <img src="https://img.icons8.com/ios-filled/50/1a3c7b/airplane-take-off.png" alt="Jet Icon">
-        <div class="reason-text">
-          <h5>Transparent and secure investment options</h5>
-          <p>Our investment opportunities are designed for clarity and security, giving you confidence in every decision.</p>
-        </div>
-      </div>
+  
     </div>
   </section>
-
+  
+  <!-- CSS -->
+  <style>
+  /* Section Styling */
+  .why-choose-section {
+    padding: 100px 0;
+    background: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+  
+  /* Row */
+  .choose-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* Left Image */
+  .choose-image {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .choose-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Right Content */
+  .choose-content {
+    flex: 1;
+    padding: 20px 40px;
+  }
+  
+  .choose-title {
+    font-size: 36px;
+    color: #1e3a8a; /* Blue Color */
+    margin-bottom: 10px;
+  }
+  
+  .choose-divider {
+    width: 50px;
+    height: 3px;
+    background: #000;
+    margin: 0 0 20px 0;
+  }
+  
+  .choose-subtitle {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  /* Features */
+  .choose-features {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .feature-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+  
+  .feature-text h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .feature-text p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .choose-row {
+      flex-direction: column;
+    }
+  
+    .choose-image, .choose-content {
+      text-align: center;
+      padding: 20px 20px;
+    }
+  
+    .feature-item {
+      justify-content: center;
+      text-align: left;
+    }
+  }
+  </style>
+  
   <!-- <div class="bottom-bar"></div> -->
 
 
