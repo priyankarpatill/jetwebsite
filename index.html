@@ -4,527 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-  <title>Prestige Jets</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Bluesky Jets</title>
   
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 40px;
-      background-color: white;
-      border-bottom: 2px solid #d3d3d3;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-  
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-  
-    .logo img {
-      height: 40px;
-    }
-  
-    .brand {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .title {
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #003f91;
-    }
-  
-    .subtitle {
-      font-size: 0.8em;
-      color: #555;
-    }
-  
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-    }
-  
-    .nav-links a {
-      text-decoration: none;
-      color: black;
-      font-weight: 500;
-      position: relative;
-    }
-  
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background-color: #003f91;
-      left: 0;
-      bottom: -5px;
-      transition: width 0.3s;
-    }
-  
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-  
-    .invest-btn {
-      background-color: #003f91;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-  
-    .invest-btn:hover {
-      background-color: #002c6a;
-    }
-  
- 
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background-color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-   
-
-    .invest-btn {
-      background-color: #004AAD;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .hero {
-      position: relative;
-      text-align: left;
-      color: white;
-    }
-
-    .hero img {
-      width: 100%;
-      height: 80vh;
-      object-fit: cover;
-    }
-
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 10%;
-      transform: translateY(-50%);
-    }
-
-    .hero-content h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .explore-btn {
-      padding: 10px 20px;
-      background: transparent;
-      border: 1px solid white;
-      color: white;
-      cursor: pointer;
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 40px 0;
-      font-size: 24px;
-      color: #004AAD;
-      font-weight: bold;
-    }
-
-
-
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f4f1ee;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-
-    .title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: #1a3c7b;
-      line-height: 1.4;
-    }
-
-    .divider {
-      width: 60px;
-      height: 3px;
-      background-color: #1a3c7b;
-      margin: 15px auto 40px auto;
-    }
-
-    .content-wrapper {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .left-box {
-      flex: 1;
-      background-color: #f5f4f2;
-      padding: 30px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
-    }
-
-    .left-box h3 {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .left-box p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    .left-box a {
-      display: inline-block;
-      margin-top: 15px;
-      text-decoration: none;
-      color: #1a3c7b;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .left-box img {
-      margin-top: 20px;
-      width: 100%;
-      border-radius: 4px;
-    }
-
-    .right-box {
-      flex: 1;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-    }
-
-    .right-box img {
-      width: 100%;
-      border-radius: 4px;
-    }
-
-    .right-box h3 {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .right-box p {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-      }
-    }
-
-
-
-
-
-
-
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #ffffff;
-    }
-
-    .why-choose-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .jet-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .jet-image img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .why-content {
-      flex: 1;
-      padding-left: 40px;
-    }
-
-    .why-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: #1a3c7b;
-      margin-bottom: 10px;
-    }
-
-    .why-content h4 {
-      font-size: 18px;
-      font-weight: normal;
-      color: #333;
-      margin-bottom: 30px;
-    }
-
-    .reason {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 25px;
-    }
-
-    .reason img {
-      width: 20px;
-      height: 20px;
-      margin-right: 15px;
-      margin-top: 3px;
-    }
-
-    .reason-text {
-      max-width: 450px;
-    }
-
-    .reason-text h5 {
-      font-size: 15px;
-      margin: 0;
-      color: #1a3c7b;
-      font-weight: 600;
-    }
-
-    .reason-text p {
-      font-size: 13px;
-      color: #555;
-      margin: 5px 0 0;
-      line-height: 1.5;
-    }
-
-    .bottom-bar {
-      /* background-color: #0a2147; */
-      height: 40px;
-      width: 100%;
-      margin-top: 60px;
-      background-image: url('https://i.ibb.co/xmPMmvB/pattern.png'); /* Optional pattern overlay */
-      background-repeat: repeat;
-    }
-
-    @media (max-width: 768px) {
-      .why-choose-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .why-content {
-        padding: 20px 0 0;
-      }
-
-      .reason {
-        justify-content: center;
-        text-align: left;
-      }
-    }
-
-
-
-
-
-
-    .hero-section {
-      /* background-color: #0a2147; */
-      background-image: url('./img/background-imf.png'); /* Optional pattern */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      color: #e0d6c7;
-      text-align: center;
-      padding: 90px 20px;
-    }
-
-    .hero-section h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      line-height: 1.4;
-      margin: 0 0 20px;
-    }
-
-    .hero-section p {
-      font-size: 15px;
-      color: #c9c9c9;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-
-    .hero-section .btn {
-      border: 1.5px solid #fff;
-      padding: 12px 30px;
-      background-color: transparent;
-      color: #fff;
-      font-size: 14px;
-      letter-spacing: 1px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .hero-section .btn:hover {
-      background-color: #fff;
-      color: #0a2147;
-    }
-
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 28px;
-      }
-
-      .hero-section p {
-        font-size: 14px;
-      }
-    }
-
-
-
-
-    .next-steps {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #fff;
-}
-
-.next-steps h2 {
-  font-size: 40px;
-  color: #0a2147;
-  letter-spacing: 1px;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.outline-btn {
-  padding: 12px 28px;
-  border: 1.5px solid #0a2147;
-  background-color: #fff;
-  color: #0a2147;
-  font-size: 14px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.outline-btn:hover {
-  background-color: #0a2147;
-  color: #fff;
-}
-
-.footer {
-  background-color: #3b3b3b;
-  color: #e0e0e0;
-  text-align: center;
-  padding: 30px 20px 20px;
-  font-size: 13px;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.footer-links a,
-.footer-links span {
-  color: #cfcfcf;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-.social-icons {
-  margin-top: 10px;
-}
-
-.social-icons a img {
-  width: 20px;
-  height: 20px;
-  margin: 0 8px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover img {
-  transform: scale(1.2);
-}
-
-
-
-
-
-.social-icons svg {
-  margin: 0 8px;
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover svg {
-  transform: scale(1.2);
-}
-
-
-  </style>
 </head>
 <body>
     <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
@@ -538,11 +20,11 @@
             <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; padding: 0; margin: 0;">
               <li><a href="index.html" style="text-decoration: none; color: black;  font-weight: bold;">HOME</a></li>
               <li><a href="about.html" style="text-decoration: none; color: black;  font-weight: bold;">ABOUT US</a></li>
-              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
-              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
-              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li>
-              <li><a href="#" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
-              <li><a href="#" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
+              <li><a href="service.html" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
+              <li><a href="fleet.html" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
+              <li><a href="investment.html" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li>
+              <li><a href="booking.html" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
+              <li><a href="contact.html" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
             </ul>
           </nav>
       
@@ -555,13 +37,13 @@
 
       <section class="hero">
         <video autoplay muted loop playsinline class="background-video">
-          <source src="./img/vecteezy_dusseldorf-germany-july-23-2017-dassault-falcon-2000ex_11362630.mp4" type="video/mp4">
+          <source src="./img/4285866-hd_1280_720_30fps.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         
         <div class="hero-content">
-          <h1>WORLD OF PRESTIGE JETS</h1>
-          <button class="explore-btn">EXPLORE</button>
+          <h1 style="color: black;">WORLD OF BLUESKY JETS</h1>
+          <button class="explore-btn" style="color: #000;">EXPLORE</button>
         </div>
       </section>
 <style>
@@ -594,13 +76,13 @@
 </style>      
 
   <!-- <div class="section-title">
-    Prestige Jets: Redefining Luxury Travel
+    Bluesky Jets: Redefining Luxury Travel
   </div> -->
   
  <!-- Full Section Start -->
 <section class="jet-section">
     <div class="container">
-        <h1 class="title">Prestige Jets: Redefining Luxury Travel <br>for Business and Leisure</h1>
+        <h1 class="title">Bluesky Jets: Redefining Luxury Travel <br>for Business and Leisure</h1>
         <div class="divider"></div>
 
         <!-- First Block -->
@@ -767,7 +249,7 @@
         <div class="choose-content">
           <h2 class="choose-title">Why Choose Us?</h2>
           <div class="choose-divider"></div>
-          <p class="choose-subtitle">Prestige Jets stands out with</p>
+          <p class="choose-subtitle">Bluesky Jets stands out with</p>
   
           <div class="choose-features">
             <div class="feature-item">
@@ -918,20 +400,76 @@
   <section class="hero-section">
     <h1>We Fly You To Over 20,000<br>Destinations World Wide</h1>
     <p>
-      Prestige Jets proudly raises the bar and exceeds the standard for luxury and corporate private jet charter services.
+      Bluesky Jets proudly raises the bar and exceeds the standard for luxury and corporate private jet charter services.
       <br>We pride ourselves on offering a professional and personalised service.
     </p>
     <button class="btn">BOOK NOW</button>
   </section>
 
+<style>
+    
+  .hero-section {
+    /* background-color: #0a2147; */
+    background-image: url('./img/background-imf.png'); /* Optional pattern */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #e0d6c7;
+    text-align: center;
+    padding: 90px 20px;
+  }
 
+  .hero-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    line-height: 1.4;
+    margin: 0 0 20px;
+  }
+
+  .hero-section p {
+    font-size: 15px;
+    color: #c9c9c9;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  .hero-section .btn {
+    border: 1.5px solid #fff;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .hero-section .btn:hover {
+    background-color: #fff;
+    color: #0a2147;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 28px;
+    }
+
+    .hero-section p {
+      font-size: 14px;
+    }
+  }
+
+
+</style>
 
   <!-- Next Steps Section -->
 <section class="next-steps">
     <h2>LET'S TAKE THE NEXT STEPS</h2>
     <div class="buttons">
       <button class="outline-btn">CONTACT US</button>
-      <button class="outline-btn">PRESTIGE JETS BROCHURE</button>
+      <button class="outline-btn">Bluesky Jets BROCHURE</button>
     </div>
   </section>
   
@@ -944,7 +482,7 @@
       <a href="#">LEGAL</a>
       <a href="#">PRIVACY POLICY</a>
       <a href="#">SITEMAP</a>
-      <span>&copy; PRESTIGE JETS. 2025</span>
+      <span>&copy; Bluesky Jets. 2025</span>
     </div>
     <div class="social-icons">
         <a href="#" aria-label="Facebook">

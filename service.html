@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bluesky Jets</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
+        <div class="logo" style="display: flex; align-items: center;">
+          <img src="./img/logo.png" alt="Logo" style="height: 80px; width: 90px;">
+        </div>
+      
+        <!-- Wrap NAV + Button Together -->
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <nav>
+            <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; font-weight: bold; margin: 0;">
+              <li><a href="index.html" style="text-decoration: none; color: black;">HOME</a></li>
+              <li><a href="about.html" style="text-decoration: none; color: black;">ABOUT US</a></li>
+              <li><a href="service.html" style="text-decoration: none; color: black;">SERVICES</a></li>
+              <li><a href="fleet.html" style="text-decoration: none; color: black;">FLEET</a></li>
+              <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li>
+              <li><a href="booking.html" style="text-decoration: none; color: black;">BOOKING</a></li>
+              <li><a href="contact.html" style="text-decoration: none; color: black;">CONTACT US</a></li>
+            </ul>
+          </nav>
+      
+          <button class="invest-btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            INVEST NOW
+          </button>
+        </div>
+      </header>
+
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Travel without compromise</h1>
+          <p>Bluesky Jets offers</p>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="image-section">
+          <img src="./img/services.png" alt="Private Jet" style="height: 400px;" />
+        </div>
+        <div class="content-section">
+          <h2>PRIVATE JET CHARTER</h2>
+          <div class="line"></div>
+          <div class="feature">
+            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;"/>
+            <p><strong>A fleet of over 2,400 safety-vetted private jets.</strong></p>
+          </div>
+          <div class="feature">
+            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
+            <p><strong>Seamless booking options through our mobile app or aviation experts.</strong></p>
+          </div>
+          <div class="feature">
+            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;"/>
+            <p><strong>Tailored solutions for business or leisure travel.</strong></p>
+          </div>
+        </div>
+      </div>
+    
+
+
+
+      <div class="investment-model" style="background-color: lightgray;">
+        <div class="investment-left">
+          <h3>HYBRID INVESTMENT MODEL</h3>
+          <div class="blue-line"></div>
+          <div class="investment-item">
+            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
+            <p>Fixed annual returns, paid quarterly.</p>
+          </div>
+          <div class="investment-item">
+            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
+            <p>Exclusive flight hours for investors.</p>
+          </div>
+          <div class="investment-item">
+            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
+            <p>A seamless blend of luxury travel and financial growth.</p>
+          </div>
+        </div>
+        <div class="investment-right">
+          <img src="./img/service1.png" alt="Jet Interior" />
+        </div>
+      </div>
+      
+      <div class="assurance-section">
+        <h2 style="font-size: 40px;">Safety and Quality Assurance </h2>
+        <div class="blue-line center-line"></div>
+        <p style="font-size: 18px;">Every jet in our fleet adheres to the highest safety standards. Your peace of mind is our priority.</p>
+      </div>
+
+      
+  <section class="hero-section">
+    <h1>Book Your Private Jet<br>with Bluesky Jets</h1>
+    <p>
+      Bluesky Jets is proud to be among the elite in the industry, recognized for our commitment to excellence.
+      As one of the few companies meeting the highest standards in private aviation, we deliver unparalleled safety,
+      quality, and service you can trust.
+      <!-- <br>We pride ourselves on offering a professional and personalised service. -->
+    </p>
+    <button class="btn">BOOK NOW</button>
+  </section>
+
+<style>
+    
+  .hero-section {
+    /* background-color: #0a2147; */
+    background-image: url('./img/background-imf.png'); /* Optional pattern */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #e0d6c7;
+    text-align: center;
+    padding: 90px 20px;
+    /* height: 400px; */
+  }
+
+  .hero-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    line-height: 1.4;
+    margin: 0 0 20px;
+  }
+
+  .hero-section p {
+    font-size: 15px;
+    color: #c9c9c9;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  .hero-section .btn {
+    border: 1.5px solid #fff;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .hero-section .btn:hover {
+    background-color: #fff;
+    color: #0a2147;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 28px;
+    }
+
+    .hero-section p {
+      font-size: 14px;
+    }
+  }
+
+
+</style>
+
+  <!-- Next Steps Section -->
+<section class="next-steps">
+    <h2>LET'S TAKE THE NEXT STEPS</h2>
+    <div class="buttons">
+      <button class="outline-btn">CONTACT US</button>
+      <button class="outline-btn">Bluesky Jets BROCHURE</button>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">PRIVATE TERMINALS</a>
+      <a href="#">CARRERS</a>
+      <a href="#">COOKIE POLICY</a>
+      <a href="#">LEGAL</a>
+      <a href="#">PRIVACY POLICY</a>
+      <a href="#">SITEMAP</a>
+      <span>&copy; Bluesky Jets. 2025</span>
+    </div>
+    <div class="social-icons">
+        <a href="#" aria-label="Facebook">
+          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z" /></svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.46.69a4.26 4.26 0 0 0 1.88-2.35c-.83.5-1.75.87-2.73 1.07a4.24 4.24 0 0 0-7.23 3.86A12.04 12.04 0 0 1 3.15 4.6a4.24 4.24 0 0 0 1.31 5.66A4.2 4.2 0 0 1 2.8 9.3v.05a4.24 4.24 0 0 0 3.4 4.15 4.23 4.23 0 0 1-1.91.07 4.25 4.25 0 0 0 3.96 2.95A8.49 8.49 0 0 1 2 19.54 11.96 11.96 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.69 0-.18-.01-.35-.02-.53A8.3 8.3 0 0 0 22.46 6z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
+        </a>
+      </div>
+      
+  </footer>
+  
+      
+</body>
+</html>
+     
+      <style>
+        .hero {
+  background: url('img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center/cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.image-section img {
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+  max-width: 600px;
+}
+
+.content-section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.line {
+  width: 60px;
+  height: 3px;
+  background-color: #1e56a0;
+  margin-bottom: 30px;
+}
+
+.feature {
+  display: flex;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.feature img {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+.feature p {
+  color: #4a4a4a;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+.investment-model {
+  display: flex;
+  /* background-color: #e0dddb; */
+  padding: 40px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.investment-left {
+  flex: 1;
+  max-width: 50%;
+}
+
+.investment-left h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.blue-line {
+  height: 3px;
+  width: 50px;
+  background-color: #004080;
+  margin-bottom: 20px;
+}
+
+.investment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.investment-item img {
+  width: 24px;
+  margin-right: 15px;
+  margin-top: 4px;
+}
+
+.investment-item p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.investment-right {
+  flex: 1;
+  max-width: 50%;
+  padding-left: 40px;
+}
+
+.investment-right img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Assurance Section */
+.assurance-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: white;
+}
+
+.assurance-section h2 {
+  color: #003366;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.center-line {
+  margin: 0 auto 20px auto;
+}
+
+.assurance-section p {
+  font-size: 16px;
+  color: #333;
+}
+
+
+      </style>
