@@ -11,7 +11,7 @@
 <body>
     <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
         <div class="logo" style="display: flex; align-items: center;">
-          <img src="./img/logo.png" alt="Logo" style="height: 80px; width: 90px;">
+          <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 100px;">
         </div>
       
         <!-- Wrap NAV + Button Together -->
@@ -173,6 +173,51 @@
       </div>
       
   </footer>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/7715841612" target="_blank" class="whatsapp-tab">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  <style>
+    /* WhatsApp Tab Styling */
+    .whatsapp-tab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-tab:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
+    }
+    
+    .whatsapp-tab img {
+      width: 35px;
+      height: 35px;
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-tab {
+        width: 50px;
+        height: 50px;
+      }
+
+      .whatsapp-tab img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
   
       
 </body>
