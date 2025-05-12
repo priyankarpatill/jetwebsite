@@ -20,15 +20,16 @@
               <li><a href="about.html" style="text-decoration: none; color: black;">ABOUT US</a></li>
               <li><a href="service.html" style="text-decoration: none; color: black;">SERVICES</a></li>
               <li><a href="fleet.html" style="text-decoration: none; color: black;">FLEET</a></li>
-              <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li>
+              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li> -->
               <li><a href="booking.html" style="text-decoration: none; color: black;">BOOKING</a></li>
               <li><a href="contact.html" style="text-decoration: none; color: black;">CONTACT US</a></li>
             </ul>
           </nav>
       
-          <button class="invest-btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-            INVEST NOW
-          </button>
+        
+         <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  ENQUIRY NOW
+</button>
 
           
         </div>
@@ -43,7 +44,7 @@
 
       <div class="specs-container">
         <div class="specs-image">
-          <img src="./img/service22.png" alt="Private Jet" style="height: 550px; width: 750px;">
+          <img src="./img/CJ1+-Exterior-JS1.jpg" alt="Private Jet" style="height: 550px; width: 750px;">
         </div>
         <div class="specs-info">
           <h2>SPECIFICATIONS</h2>
@@ -126,7 +127,9 @@
       quality, and service you can trust.
       <!-- <br>We pride ourselves on offering a professional and personalised service. -->
     </p>
-    <button class="btn">BOOK NOW</button>
+      <a href="booking.html">
+  <button class="btn">BOOK NOW</button>
+</a>
   </section>
 
 <style>
@@ -192,7 +195,9 @@
 <section class="next-steps">
     <h2>LET'S TAKE THE NEXT STEPS</h2>
     <div class="buttons">
-      <button class="outline-btn">CONTACT US</button>
+      <a href="contact.html">
+  <button class="outline-btn">CONTACT US</button>
+</a>
       <button class="outline-btn">Bluesky Jets BROCHURE</button>
     </div>
   </section>
@@ -271,14 +276,15 @@
 </html>
       <style>
         .hero {
-  background: url('img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center/cover;
+  background: url('img/citation-cj1-1.jpg') no-repeat center center/cover;
   height: 70vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Move to right */
   position: relative;
   color: #fff;
-  text-align: center;
+  text-align: right;
+  padding-right: 250px;
 }
 
 .hero::before {
@@ -291,6 +297,8 @@
 .hero-content {
   position: relative;
   z-index: 1;
+  max-width: 500px; /* Set maximum width */
+  white-space: nowrap; /* ✨ Prevent breaking into two lines */
 }
 
 .hero h1 {

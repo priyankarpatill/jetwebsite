@@ -20,15 +20,16 @@
               <li><a href="about.html" style="text-decoration: none; color: black;">ABOUT US</a></li>
               <li><a href="service.html" style="text-decoration: none; color: black;">SERVICES</a></li>
               <li><a href="fleet.html" style="text-decoration: none; color: black;">FLEET</a></li>
-              <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li>
+              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li> -->
               <li><a href="booking.html" style="text-decoration: none; color: black;">BOOKING</a></li>
               <li><a href="contact.html" style="text-decoration: none; color: black;">CONTACT US</a></li>
             </ul>
           </nav>
       
-          <button class="invest-btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-            INVEST NOW
-          </button>
+        
+         <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  ENQUIRY NOW
+</button>
         </div>
       </header>
 
@@ -42,7 +43,7 @@
 
       <div class="container">
         <div class="image-section">
-          <img src="./img/services.png" alt="Private Jet" style="height: 400px;" />
+          <img src="./img/cessna-citation-mustang-exterior-1540x960.jpg" alt="Private Jet" style="height: 400px;" />
         </div>
         <div class="content-section">
           <h2>PRIVATE JET CHARTER</h2>
@@ -65,7 +66,7 @@
 
 
 
-      <div class="investment-model" style="background-color: lightgray;">
+      <!-- <div class="investment-model" style="background-color: lightgray;">
         <div class="investment-left">
           <h3>HYBRID INVESTMENT MODEL</h3>
           <div class="blue-line"></div>
@@ -85,7 +86,7 @@
         <div class="investment-right">
           <img src="./img/service1.png" alt="Jet Interior" />
         </div>
-      </div>
+      </div> -->
       
       <div class="assurance-section">
         <h2 style="font-size: 40px;">Safety and Quality Assurance </h2>
@@ -102,7 +103,9 @@
       quality, and service you can trust.
       <!-- <br>We pride ourselves on offering a professional and personalised service. -->
     </p>
-    <button class="btn">BOOK NOW</button>
+      <a href="booking.html">
+  <button class="btn">BOOK NOW</button>
+</a>
   </section>
 
 <style>
@@ -168,7 +171,9 @@
 <section class="next-steps">
     <h2>LET'S TAKE THE NEXT STEPS</h2>
     <div class="buttons">
-      <button class="outline-btn">CONTACT US</button>
+      <a href="contact.html">
+  <button class="outline-btn">CONTACT US</button>
+</a>
       <button class="outline-btn">Bluesky Jets BROCHURE</button>
     </div>
   </section>
@@ -248,15 +253,16 @@
 </html>
      
       <style>
-        .hero {
+       .hero {
   background: url('img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center/cover;
   height: 70vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Move to right */
   position: relative;
   color: #fff;
-  text-align: center;
+  text-align: right;
+  padding-right: 250px;
 }
 
 .hero::before {
@@ -269,6 +275,8 @@
 .hero-content {
   position: relative;
   z-index: 1;
+  max-width: 500px; /* Set maximum width */
+  white-space: nowrap; /* ✨ Prevent breaking into two lines */
 }
 
 .hero h1 {
@@ -279,8 +287,6 @@
 .hero p {
   font-size: 1.5rem;
 }
-
-
 
 
 

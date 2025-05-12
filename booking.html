@@ -22,64 +22,317 @@
               <li><a href="about.html" style="text-decoration: none; color: black;  font-weight: bold;">ABOUT US</a></li>
               <li><a href="service.html" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
               <li><a href="fleet.html" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
-              <li><a href="investment.html" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li>
-              <li><a href="investment.html" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
+              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li> -->
+              <li><a href="booking.html" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
               <li><a href="contact.html" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
             </ul>
           </nav>
       
-          <button class="invest-btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-            INVEST NOW
-          </button>
+        
+         <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  ENQUIRY NOW
+</button>
         </div>
       </header>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bluesky Jets</h1>
+    <p>Dedicated to Precision, Devoted to your Journey</p>
+  </div>
+</section>
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" onclick="showForm('round')">ROUND TRIP</div>
+  <div class="tab" onclick="showForm('oneway')">ONE-WAY</div>
+  <div class="tab" onclick="showForm('multi')">MULTI TRIP</div>
+</div>
 
-      <section class="hero">
-        <div class="hero-content">
-          <h1>Bluesky Jets</h1>
-          <p>Dedicated to Precision, Devoted to your Journey</p>
+<!-- Booking Form -->
+<form class="form-container" id="bookingForm">
+  <div id="formFields"></div>
+
+  <input type="text" required placeholder="Mobile Number" pattern="[0-9]{10}" />
+  <input type="email" required placeholder="Email ID" />
+  <select required>
+    <option value="" disabled selected>Number of Passengers</option>
+    <!-- Options 1-15 -->
+    <!-- ${[...Array(15).keys()].map(i => `<option>${i+1}</option>`).join('')} -->
+     
+  <!-- <option value="" disabled selected>Number of Passengers</option> -->
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+  <option>10</option>
+  <option>11</option>
+  <option>12</option>
+  <option>13</option>
+  <option>14</option>
+  <option>15</option>
+  </select>
+
+  <button type="submit" class="submit-btn">Submit Your Booking</button>
+</form>
+
+<!-- Thank You Message -->
+<div id="thankYouMessage" style="display:none; text-align:center; margin-top:20px; font-size:20px; color:green;">
+  Thank you for your booking query.<br>Our representative will get in touch with you shortly.
+</div>
+
+<!-- Another Section -->
+<section class="hero-section">
+  <h1>Book Your Private Jet<br>with Bluesky Jets</h1>
+  <p>Bluesky Jets is proud to be among the elite in the industry, recognized for our commitment to excellence. We deliver unparalleled safety, quality, and service you can trust.</p>
+    <a href="booking.html">
+  <button class="btn">BOOK NOW</button>
+</a>
+</section>
+
+<!-- CSS Styling -->
+<style>
+.hero { /* Your existing hero section code */ }
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.tab.active {
+  background-color: #007bff;
+  color: white;
+}
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+.form-container select,
+.form-container input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.hero-section {
+  padding: 50px;
+  text-align: center;
+}
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.hero-section .btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.add-trip-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+let tripCounter = 1;
+function showForm(type) {
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  if (type === 'round') document.querySelectorAll('.tab')[0].classList.add('active');
+  if (type === 'oneway') document.querySelectorAll('.tab')[1].classList.add('active');
+  if (type === 'multi') document.querySelectorAll('.tab')[2].classList.add('active');
+
+  const formFields = document.getElementById('formFields');
+  formFields.innerHTML = '';
+
+  if (type === 'round') {
+    formFields.innerHTML = `
+      <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
+      <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+      <input type="date" required placeholder="Departure Date" />
+      <input type="date" required placeholder="Return Date" />
+    `;
+  } 
+  else if (type === 'oneway') {
+    formFields.innerHTML = `
+      <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
+      <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+      <input type="date" required placeholder="Departure Date" />
+      <input type="date" required placeholder="Return Date" />
+    `;
+  } 
+  else if (type === 'multi') {
+    formFields.innerHTML = `
+      <div id="multiTrips">
+        <div class="trip-set">
+          <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
+          <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+          <input type="date" required placeholder="Departure Date" />
         </div>
-      </section>
-      <div class="tabs">
-        <div class="tab active">ROUND TRIP</div>
-        <div class="tab">ONE-WAY</div>
-        <div class="tab">MULTI TRIP</div>
       </div>
-    
-      <form class="form-container">
-        <select required>
-          <option value="" disabled selected>Departure</option>
-          <option>New York</option>
-          <option>London</option>
-        </select>
-    
-        <select required>
-          <option value="" disabled selected>Arrival</option>
-          <option>Paris</option>
-          <option>Singapore</option>
-        </select>
-    
-        <input type="date" required />
-    
-        <select required>
-          <option value="" disabled selected>Cabin</option>
-          <option>Economy</option>
-          <option>Business</option>
-          <option>First Class</option>
-        </select>
-    
-        <button type="submit" class="search-btn">🔍 Search</button>
-      </form>
-       <section class="hero-section">
-    <h1>Book Your Private Jet<br>with Bluesky Jets</h1>
-    <p>
-      Bluesky Jets is proud to be among the elite in the industry, recognized for our commitment to excellence.
-      As one of the few companies meeting the highest standards in private aviation, we deliver unparalleled safety,
-      quality, and service you can trust.
-      <!-- <br>We pride ourselves on offering a professional and personalised service. -->
-    </p>
-    <button class="btn">BOOK NOW</button>
-  </section>
+      <button type="button" class="add-trip-btn" onclick="addAnotherTrip()">+ Add Another Trip</button>
+    `;
+  }
+}
+
+function addAnotherTrip() {
+  const tripSet = document.createElement('div');
+  tripSet.className = 'trip-set';
+  tripSet.innerHTML = `
+    <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
+    <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+    <input type="date" required placeholder="Departure Date" />
+  `;
+  document.getElementById('multiTrips').appendChild(tripSet);
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("thankYouMessage").style.display = "block";
+  document.getElementById("bookingForm").style.display = "none";
+});
+</script>
+
+<!-- CSS Styling -->
+<style>
+.hero {
+  background: url('img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center/cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  color: #fff;
+  text-align: right;
+  padding-right: 50px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.tab.active {
+  background-color: #007bff;
+  color: white;
+}
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+.form-container select,
+.form-container input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+}
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.hero-section {
+  padding: 50px;
+  text-align: center;
+}
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.hero-section .btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+</style>
+<style>
+.form-container select,
+.form-container input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* Light shadow */
+}
+</style>
+
+
+<!-- JavaScript for form submission -->
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("thankYouMessage").style.display = "block";
+  document.getElementById("bookingForm").style.display = "none";
+});
+</script>
 
 <style>
     
@@ -144,7 +397,9 @@
 <section class="next-steps">
     <h2>LET'S TAKE THE NEXT STEPS</h2>
     <div class="buttons">
-      <button class="outline-btn">CONTACT US</button>
+      <a href="contact.html">
+  <button class="outline-btn">CONTACT US</button>
+</a>
       <button class="outline-btn">Bluesky Jets BROCHURE</button>
     </div>
   </section>
@@ -226,7 +481,7 @@
     
       <style>
    .hero {
-  background: url('img/booking.jpg') no-repeat center center/cover;
+  background: url('img/72.jpg') no-repeat center center/cover;
   height: 70vh;
   display: flex;
   align-items: center;

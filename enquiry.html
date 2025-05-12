@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bluesky Jets | Enquiry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .enquiry-container {
+      max-width: 600px;
+      background: #fff;
+      padding: 30px;
+      margin: 50px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .enquiry-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+    .enquiry-container input,
+    .enquiry-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .enquiry-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .enquiry-container button:hover {
+      background-color: #0056b3;
+    }
+    #thankYouMessage {
+      text-align: center;
+      margin-top: 20px;
+      color: green;
+      font-size: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="enquiry-container">
+  <h1>Enquiry Form</h1>
+  <form id="enquiryForm">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email ID" required>
+    <input type="text" name="phone" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+    <textarea name="message" rows="5" placeholder="Your Message / Query" required></textarea>
+    <button type="submit">Submit Enquiry</button>
+  </form>
+
+  <div id="thankYouMessage">
+    Thank you for contacting us.<br>Our team will get back to you shortly!
+  </div>
+</div>
+
+<script>
+document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("thankYouMessage").style.display = "block";
+  document.getElementById("enquiryForm").style.display = "none";
+ setTimeout(function() {
+    window.location.href = "index.html"; // Change to your main page
+  }, 3000); // 3000ms = 3 seconds
+});
+</script>
+
+</body>
+</html>
