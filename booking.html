@@ -11,7 +11,7 @@
 <body>
     <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
         <div class="logo" style="display: flex; align-items: center;">
-          <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 100px;">
+          <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 250px;">
         </div>
       
         <!-- Wrap NAV + Button Together -->
@@ -184,16 +184,212 @@ function showForm(type) {
 
   if (type === 'round') {
     formFields.innerHTML = `
-      <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
-      <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+      <select required>
+  <option value="" disabled selected>Departure</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
+
+
+<select required>
+  <option value="" disabled selected>Arrival</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
       <input type="date" required placeholder="Departure Date" />
       <input type="date" required placeholder="Return Date" />
     `;
   } 
   else if (type === 'oneway') {
     formFields.innerHTML = `
-      <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
-      <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+     <select required>
+  <option value="" disabled selected>Departure</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
+
+
+<select required>
+  <option value="" disabled selected>Arrival</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
       <input type="date" required placeholder="Departure Date" />
       <input type="date" required placeholder="Return Date" />
     `;
@@ -202,8 +398,106 @@ function showForm(type) {
     formFields.innerHTML = `
       <div id="multiTrips">
         <div class="trip-set">
-          <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
-          <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+         <select required>
+  <option value="" disabled selected>Departure</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
+
+
+<select required>
+  <option value="" disabled selected>Arrival</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
           <input type="date" required placeholder="Departure Date" />
         </div>
       </div>
@@ -216,9 +510,108 @@ function addAnotherTrip() {
   const tripSet = document.createElement('div');
   tripSet.className = 'trip-set';
   tripSet.innerHTML = `
-    <select required><option value="" disabled selected>Departure</option><option>New York</option><option>London</option></select>
-    <select required><option value="" disabled selected>Arrival</option><option>Paris</option><option>Singapore</option></select>
+   <select required>
+  <option value="" disabled selected>Departure</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
+
+
+<select required>
+  <option value="" disabled selected>Arrival</option>
+
+  <!-- Karnataka -->
+  <option>Bangalore (BLR)</option>
+  <option>Mangalore (IXE)</option>
+  <option>Hubli (HBX)</option>
+  <option>Mysuru (MYQ)</option>
+  <option>Belgaum (IXG)</option>
+
+  <!-- Major Indian Cities -->
+  <option>Delhi (DEL)</option>
+  <option>Mumbai (BOM)</option>
+  <option>Chennai (MAA)</option>
+  <option>Kolkata (CCU)</option>
+  <option>Hyderabad (HYD)</option>
+  <option>Ahmedabad (AMD)</option>
+  <option>Pune (PNQ)</option>
+  <option>Kochi (COK)</option>
+  <option>Goa (GOI)</option>
+  <option>Jaipur (JAI)</option>
+  <option>Lucknow (LKO)</option>
+  <option>Varanasi (VNS)</option>
+  <option>Indore (IDR)</option>
+  <option>Guwahati (GAU)</option>
+  <option>Bhubaneswar (BBI)</option>
+
+  <!-- International -->
+  <option>New York (JFK)</option>
+  <option>Los Angeles (LAX)</option>
+  <option>London (LHR)</option>
+  <option>Paris (CDG)</option>
+  <option>Dubai (DXB)</option>
+  <option>Singapore (SIN)</option>
+  <option>Hong Kong (HKG)</option>
+  <option>Tokyo (NRT)</option>
+  <option>Sydney (SYD)</option>
+  <option>Toronto (YYZ)</option>
+  <option>Frankfurt (FRA)</option>
+  <option>Zurich (ZRH)</option>
+  <option>Amsterdam (AMS)</option>
+  <option>Doha (DOH)</option>
+  <option>Miami (MIA)</option>
+  <option>San Francisco (SFO)</option>
+  <option>Bangkok (BKK)</option>
+  <option>Johannesburg (JNB)</option>
+  <option>São Paulo (GRU)</option>
+</select>
+
     <input type="date" required placeholder="Departure Date" />
+     <button type="button" onclick="this.parentElement.remove()" style="margin-left:10px; background:red; color:white; border:none; border-radius:5px; padding:5px 10px;">Remove</button>
   `;
   document.getElementById('multiTrips').appendChild(tripSet);
 }
