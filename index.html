@@ -636,31 +636,28 @@
       </ul>
     </nav>
   </header>
-  <script>
-    function toggleMobileMenu() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuToggle = document.querySelector('.menu-toggle');
-  
-  mobileMenu.classList.toggle('show');
-  document.body.classList.toggle('no-scroll');
-  
-  // Toggle visibility of menu button
-  if (mobileMenu.classList.contains('show')) {
-    menuToggle.style.display = 'none';
-  } else {
-    menuToggle.style.display = 'block';
-  }
+  <style>/* Mobile Menu Toggle */
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #222;
+  z-index: 1000;
+  position: relative; /* Add this */
 }
 
-// Close when clicking on links
-document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.remove('show');
-    document.body.classList.remove('no-scroll');
-    document.querySelector('.menu-toggle').style.display = 'block';
-  });
-});
-  </script>
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #222;
+  z-index: 1004; /* Higher than menu toggle */
+}</style>
   
   <!-- Hero Section with Video -->
   <!-- Hero Section with Video -->
