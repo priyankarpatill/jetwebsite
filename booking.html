@@ -4,36 +4,320 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   <link rel="stylesheet" href="./css/style.css">
   <title>Blusky Jets</title>
   
 </head>
 <body>
-    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
+       <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
         <div class="logo" style="display: flex; align-items: center;">
           <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 250px;">
         </div>
-      
+       <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
         <!-- Wrap NAV + Button Together -->
         <div style="display: flex; align-items: center; gap: 20px;">
           <nav>
             <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; padding: 0; margin: 0;">
-              <li><a href="index.html" style="text-decoration: none; color: black;  font-weight: bold;">HOME</a></li>
-              <li><a href="about.html" style="text-decoration: none; color: black;  font-weight: bold;">ABOUT US</a></li>
-              <li><a href="service.html" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
-              <li><a href="fleet.html" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
+              <li><a href="index" style="text-decoration: none; color: black;  font-weight: bold;">HOME</a></li>
+              <li><a href="about" style="text-decoration: none; color: black;  font-weight: bold;">ABOUT US</a></li>
+              <li><a href="service" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
+              <li><a href="fleet" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
               <!-- <li><a href="investment.html" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li> -->
-              <li><a href="booking.html" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
-              <li><a href="contact.html" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
+              <li><a href="booking" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
+              <li><a href="contact" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
             </ul>
           </nav>
       
-        
                  <!-- <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
   ENQUIRY NOW
 </button> -->
+ <nav class="mobile-nav" id="mobileMenu">
+  <div class="close-btn" onclick="toggleMobileMenu()">×</div>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="service.html">SERVICES</a></li>
+    <li><a href="fleet.html">FLEET</a></li>
+    <li><a href="booking.html">BOOKING</a></li>
+    <li><a href="contact.html">CONTACT US</a></li>
+  </ul>
+</nav>
+
+
+<script>
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+</script>
+
+
         </div>
       </header>
+    
+  
+  <style>
+  
+
+    /* Hide menu toggle on desktop */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: black;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 270px;
+        height: 100%;
+        background: white;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        padding: 20px;
+        animation: slideIn 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .mobile-menu li {
+        margin-bottom: 15px;
+      }
+
+      .mobile-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.2s;
+      }
+
+      .mobile-menu a:hover {
+        background: #f0f0f0;
+      }
+
+      .close-btn {
+        font-size: 24px;
+        text-align: right;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      @keyframes slideIn {
+        from {
+          right: -300px;
+          opacity: 0;
+        }
+        to {
+          right: 0;
+          opacity: 1;
+        }
+      }
+    }
+
+
+    /* Hide mobile nav by default */
+.mobile-nav {
+  display: none;
+}
+
+/* Show only hamburger icon on small screens */
+.mobile-menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hide desktop nav on mobile */
+@media screen and (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .mobile-nav.show {
+    display: block;
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-nav-links li {
+    margin: 10px 0;
+  }
+
+  .mobile-nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+/* HIDE by default */
+.mobile-nav {
+  display: none;
+}
+
+/* SHOW when toggled */
+.mobile-nav.show {
+  display: block;
+  background-color: white;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+  .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: black;
+    }
+
+    /* Mobile nav hidden by default */
+    .mobile-nav {
+      display: none;
+    }
+
+    .mobile-nav.show {
+      display: block;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 260px;
+      height: 100%;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+
+    .mobile-nav .close-btn {
+      text-align: right;
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mobile-nav-links li {
+      margin: 15px 0;
+    }
+
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    @keyframes slideIn {
+      from {
+        right: -300px;
+        opacity: 0;
+      }
+      to {
+        right: 0;
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+  @media (max-width: 768px) {
+  .header {
+    padding: 6px 0px; /* Removed left & right padding */
+    height: auto;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;  /* Align logo left, menu icon right */
+    align-items: center;
+    width: 100%;
+    padding: 0;                      /* No padding */
+    margin: 0;
+  }
+
+  .logo {
+    margin-left: 0;   /* No margin from left */
+    padding-left: 0;  /* No padding from left */
+  }
+
+  .logo img {
+    width: auto;
+    height: 60px !important;
+    width: 120px !important;
+    object-fit: contain;
+    display: block;
+  }
+   .menu-toggle {
+    font-size: 24px;
+    padding: 6px;
+    margin-left: auto;     /* Push menu to right */
+    color: #000;
+    background: none;
+    border: none;
+  }
+}
+
+
+  </style>
 <!-- Hero Section -->
  
 <section class="hero">
@@ -42,45 +326,859 @@
     <p>Dedicated to Precision, Devoted to your Journey</p>
   </div>
 </section>
+
+<style>
+  .custom-select {
+   width: 100%;
+   height: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  outline: none;
+  transition: border-color 0.3s ease;
+  appearance: none; /* removes default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+</style>
 <!-- Tabs -->
 <div class="tabs">
-  <div class="tab active" onclick="showForm('round')">ROUND TRIP</div>
-  <div class="tab" onclick="showForm('oneway')">ONE-WAY</div>
-  <div class="tab" onclick="showForm('multi')">MULTI TRIP</div>
-</div>
+    <button class="tab active" data-tab="round">ROUND TRIP</button>
+    <button class="tab" data-tab="oneway">ONE-WAY</button>
+    <button class="tab" data-tab="multi">MULTI TRIP</button>
+  </div>
 
 <!-- Booking Form -->
-<form class="form-container" id="bookingForm">
-  <div id="formFields"></div>
+<!-- <form class="form-container" id="bookingForm"> -->
+  <!-- <div id="formFields"></div> -->
+  <!-- ROUND TRIP -->
+  <div class="form-panel active" id="round">
+    <!-- <form class="booking-form"> -->
+      <form class="booking-form" action="./process_booking.php" method="post">
+    <input type="hidden" name="trip_type" value="round"> <!-- Hidden field to indicate trip type -->
 
-  <input type="text" required placeholder="Mobile Number" pattern="[0-9]{10}" />
-  <input type="email" required placeholder="Email ID" />
-  <select required>
-    <option value="" disabled selected>Number of Passengers</option>
-    <!-- Options 1-15 -->
-    <!-- ${[...Array(15).keys()].map(i => `<option>${i+1}</option>`).join('')} -->
-     
-  <!-- <option value="" disabled selected>Number of Passengers</option> -->
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-  <option>6</option>
-  <option>7</option>
-  <option>8</option>
-  <option>9</option>
-  <option>10</option>
-  <option>11</option>
-  <option>12</option>
-  <option>13</option>
-  <option>14</option>
-  <option>15</option>
-  </select>
+      <!-- Departure Dropdown -->
+<select name="departure" class="custom-select searchable" required>
 
-  <button type="submit" class="submit-btn">Submit Your Booking</button>
-</form>
+  <option value="">Select Departure</option>
 
+  <!-- India -->
+  <optgroup label="India">
+    <option value="BLR">Bengaluru (Kempegowda) – BLR</option>
+    <option value="IXE">Mangaluru – IXE</option>
+    <option value="HBX">Hubli – HBX</option>
+    <option value="MYQ">Mysuru – MYQ</option>
+    <option value="IXG">Belgaum – IXG</option>
+    <option value="DEL">Delhi (Indira Gandhi) – DEL</option>
+    <option value="BOM">Mumbai (Chhatrapati Shivaji) – BOM</option>
+    <option value="MAA">Chennai – MAA</option>
+    <option value="CCU">Kolkata (Netaji Subhas Chandra Bose) – CCU</option>
+    <option value="HYD">Hyderabad (Rajiv Gandhi) – HYD</option>
+    <option value="AMD">Ahmedabad – AMD</option>
+    <option value="PNQ">Pune – PNQ</option>
+    <option value="COK">Kochi (Cochin) – COK</option>
+    <option value="GOI">Goa (Dabolim) – GOI</option>
+    <option value="JAI">Jaipur – JAI</option>
+    <option value="LKO">Lucknow – LKO</option>
+    <option value="VNS">Varanasi – VNS</option>
+    <option value="IDR">Indore – IDR</option>
+    <option value="GAU">Guwahati – GAU</option>
+  </optgroup>
+
+  <!-- International – Middle East & Gulf -->
+  <optgroup label="International – Middle East / Gulf">
+    <option value="DXB">Dubai, UAE – DXB</option>
+    <option value="AUH">Abu Dhabi, UAE – AUH</option>
+    <option value="SHJ">Sharjah, UAE – SHJ</option>
+    <option value="RAK">Ras Al Khaimah, UAE – RAK</option>
+    <option value="DOH">Doha, Qatar – DOH</option>
+    <option value="MCT">Muscat, Oman – MCT</option>
+    <option value="BJM">Bahrain – BAH</option>
+    <option value="KWI">Kuwait City, Kuwait – KWI</option>
+    <option value="JED">Jeddah, Saudi Arabia – JED</option>
+    <option value="RUH">Riyadh, Saudi Arabia – RUH</option>
+    <option value="DMM">Dammam, Saudi Arabia – DMM</option>
+    <option value="MED">Medina, Saudi Arabia – MED</option>
+  </optgroup>
+
+  <!-- International – South & Southeast Asia -->
+  <optgroup label="International – South & SE Asia">
+    <option value="CMB">Colombo, Sri Lanka – CMB</option>
+    <option value="MLE">Malé, Maldives – MLE</option>
+    <option value="KTM">Kathmandu, Nepal – KTM</option>
+    <option value="DAC">Dhaka, Bangladesh – DAC</option>
+    <option value="BKK">Bangkok, Thailand – BKK</option>
+    <option value="DMK">Bangkok (Don Mueang), Thailand – DMK</option>
+    <option value="HKT">Phuket, Thailand – HKT</option>
+    <option value="SIN">Singapore – SIN</option>
+    <option value="KUL">Kuala Lumpur, Malaysia – KUL</option>
+    <option value="HKG">Hong Kong – HKG</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+    <option value="SGN">Ho Chi Minh City, Vietnam – SGN</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – Asia-Pacific & Africa -->
+  <optgroup label="International – Asia‑Pacific & Africa">
+    <option value="HND">Tokyo Haneda, Japan – HND</option>
+    <option value="NGO">Nagoya, Japan – NGO</option>
+    <option value="NRT">Tokyo Narita, Japan – NRT</option>
+    <option value="DPS">Denpasar (Bali), Indonesia – DPS</option>
+    <option value="MRU">Mauritius – MRU</option>
+    <option value="ADD">Addis Ababa, Ethiopia – ADD</option>
+  </optgroup>
+
+  <!-- International – Europe -->
+  <optgroup label="International – Europe">
+    <option value="LHR">London Heathrow, UK – LHR</option>
+    <option value="AMS">Amsterdam, Netherlands – AMS</option>
+    <option value="FRA">Frankfurt, Germany – FRA</option>
+    <option value="MUC">Munich, Germany – MUC</option>
+    <option value="CDG">Paris CDG, France – CDG</option>
+    <option value="ZRH">Zurich, Switzerland – ZRH</option>
+    <option value="VIE">Vienna, Austria – VIE</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – North America & Oceania -->
+  <optgroup label="International – North America & Oceania">
+    <option value="SFO">San Francisco, USA – SFO</option>
+    <option value="SYD">Sydney, Australia – SYD</option>
+  </optgroup>
+</select>
+
+
+      <!-- Arrival Dropdown -->
+    <select name="arrival" class="custom-select searchable" required>
+
+        <option value="">Arrival</option>
+        <!-- same options as departure -->
+         <optgroup label="India">
+    <option value="BLR">Bengaluru (Kempegowda) – BLR</option>
+    <option value="IXE">Mangaluru – IXE</option>
+    <option value="HBX">Hubli – HBX</option>
+    <option value="MYQ">Mysuru – MYQ</option>
+    <option value="IXG">Belgaum – IXG</option>
+    <option value="DEL">Delhi (Indira Gandhi) – DEL</option>
+    <option value="BOM">Mumbai (Chhatrapati Shivaji) – BOM</option>
+    <option value="MAA">Chennai – MAA</option>
+    <option value="CCU">Kolkata (Netaji Subhas Chandra Bose) – CCU</option>
+    <option value="HYD">Hyderabad (Rajiv Gandhi) – HYD</option>
+    <option value="AMD">Ahmedabad – AMD</option>
+    <option value="PNQ">Pune – PNQ</option>
+    <option value="COK">Kochi (Cochin) – COK</option>
+    <option value="GOI">Goa (Dabolim) – GOI</option>
+    <option value="JAI">Jaipur – JAI</option>
+    <option value="LKO">Lucknow – LKO</option>
+    <option value="VNS">Varanasi – VNS</option>
+    <option value="IDR">Indore – IDR</option>
+    <option value="GAU">Guwahati – GAU</option>
+  </optgroup>
+
+  <!-- International – Middle East & Gulf -->
+  <optgroup label="International – Middle East / Gulf">
+    <option value="DXB">Dubai, UAE – DXB</option>
+    <option value="AUH">Abu Dhabi, UAE – AUH</option>
+    <option value="SHJ">Sharjah, UAE – SHJ</option>
+    <option value="RAK">Ras Al Khaimah, UAE – RAK</option>
+    <option value="DOH">Doha, Qatar – DOH</option>
+    <option value="MCT">Muscat, Oman – MCT</option>
+    <option value="BJM">Bahrain – BAH</option>
+    <option value="KWI">Kuwait City, Kuwait – KWI</option>
+    <option value="JED">Jeddah, Saudi Arabia – JED</option>
+    <option value="RUH">Riyadh, Saudi Arabia – RUH</option>
+    <option value="DMM">Dammam, Saudi Arabia – DMM</option>
+    <option value="MED">Medina, Saudi Arabia – MED</option>
+  </optgroup>
+
+  <!-- International – South & Southeast Asia -->
+  <optgroup label="International – South & SE Asia">
+    <option value="CMB">Colombo, Sri Lanka – CMB</option>
+    <option value="MLE">Malé, Maldives – MLE</option>
+    <option value="KTM">Kathmandu, Nepal – KTM</option>
+    <option value="DAC">Dhaka, Bangladesh – DAC</option>
+    <option value="BKK">Bangkok, Thailand – BKK</option>
+    <option value="DMK">Bangkok (Don Mueang), Thailand – DMK</option>
+    <option value="HKT">Phuket, Thailand – HKT</option>
+    <option value="SIN">Singapore – SIN</option>
+    <option value="KUL">Kuala Lumpur, Malaysia – KUL</option>
+    <option value="HKG">Hong Kong – HKG</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+    <option value="SGN">Ho Chi Minh City, Vietnam – SGN</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – Asia-Pacific & Africa -->
+  <optgroup label="International – Asia‑Pacific & Africa">
+    <option value="HND">Tokyo Haneda, Japan – HND</option>
+    <option value="NGO">Nagoya, Japan – NGO</option>
+    <option value="NRT">Tokyo Narita, Japan – NRT</option>
+    <option value="DPS">Denpasar (Bali), Indonesia – DPS</option>
+    <option value="MRU">Mauritius – MRU</option>
+    <option value="ADD">Addis Ababa, Ethiopia – ADD</option>
+  </optgroup>
+
+  <!-- International – Europe -->
+  <optgroup label="International – Europe">
+    <option value="LHR">London Heathrow, UK – LHR</option>
+    <option value="AMS">Amsterdam, Netherlands – AMS</option>
+    <option value="FRA">Frankfurt, Germany – FRA</option>
+    <option value="MUC">Munich, Germany – MUC</option>
+    <option value="CDG">Paris CDG, France – CDG</option>
+    <option value="ZRH">Zurich, Switzerland – ZRH</option>
+    <option value="VIE">Vienna, Austria – VIE</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – North America & Oceania -->
+  <optgroup label="International – North America & Oceania">
+    <option value="SFO">San Francisco, USA – SFO</option>
+    <option value="SYD">Sydney, Australia – SYD</option>
+  </optgroup>
+      </select>
+
+      <input type="date"  name="departure_date[]" placeholder="Departure Date" required>
+      <input type="date"   name="return_date[]" placeholder="Return Date" required>
+      <input type="tel" name="mobile" placeholder="Mobile Number" required>
+      <input type="email" name="email" placeholder="Email ID" required>
+      <input type="number" name="passengers" placeholder="Number of Passengers" required>
+      <button type="submit">Submit Your Booking</button>
+    </form>
+  </div>
+<script>
+  $(document).ready(function() {
+    $('#departure').select2({ placeholder: "Select Departure" });
+    $('#arrival').select2({ placeholder: "Select Arrival" });
+  });
+</script>
+  <!-- ONE-WAY -->
+  <div class="form-panel" id="oneway">
+    <!-- <form class="booking-form"> -->
+      <form class="booking-form" action="./process_booking.php" method="post">
+    <input type="hidden" name="trip_type" value="oneway"> <!-- Hidden field to indicate trip type -->
+
+<select name="departure" class="custom-select searchable" required>
+
+  <option value="">Select Departure</option>
+
+  <!-- India -->
+  <optgroup label="India">
+    <option value="BLR">Bengaluru (Kempegowda) – BLR</option>
+    <option value="IXE">Mangaluru – IXE</option>
+    <option value="HBX">Hubli – HBX</option>
+    <option value="MYQ">Mysuru – MYQ</option>
+    <option value="IXG">Belgaum – IXG</option>
+    <option value="DEL">Delhi (Indira Gandhi) – DEL</option>
+    <option value="BOM">Mumbai (Chhatrapati Shivaji) – BOM</option>
+    <option value="MAA">Chennai – MAA</option>
+    <option value="CCU">Kolkata (Netaji Subhas Chandra Bose) – CCU</option>
+    <option value="HYD">Hyderabad (Rajiv Gandhi) – HYD</option>
+    <option value="AMD">Ahmedabad – AMD</option>
+    <option value="PNQ">Pune – PNQ</option>
+    <option value="COK">Kochi (Cochin) – COK</option>
+    <option value="GOI">Goa (Dabolim) – GOI</option>
+    <option value="JAI">Jaipur – JAI</option>
+    <option value="LKO">Lucknow – LKO</option>
+    <option value="VNS">Varanasi – VNS</option>
+    <option value="IDR">Indore – IDR</option>
+    <option value="GAU">Guwahati – GAU</option>
+  </optgroup>
+
+  <!-- International – Middle East & Gulf -->
+  <optgroup label="International – Middle East / Gulf">
+    <option value="DXB">Dubai, UAE – DXB</option>
+    <option value="AUH">Abu Dhabi, UAE – AUH</option>
+    <option value="SHJ">Sharjah, UAE – SHJ</option>
+    <option value="RAK">Ras Al Khaimah, UAE – RAK</option>
+    <option value="DOH">Doha, Qatar – DOH</option>
+    <option value="MCT">Muscat, Oman – MCT</option>
+    <option value="BJM">Bahrain – BAH</option>
+    <option value="KWI">Kuwait City, Kuwait – KWI</option>
+    <option value="JED">Jeddah, Saudi Arabia – JED</option>
+    <option value="RUH">Riyadh, Saudi Arabia – RUH</option>
+    <option value="DMM">Dammam, Saudi Arabia – DMM</option>
+    <option value="MED">Medina, Saudi Arabia – MED</option>
+  </optgroup>
+
+  <!-- International – South & Southeast Asia -->
+  <optgroup label="International – South & SE Asia">
+    <option value="CMB">Colombo, Sri Lanka – CMB</option>
+    <option value="MLE">Malé, Maldives – MLE</option>
+    <option value="KTM">Kathmandu, Nepal – KTM</option>
+    <option value="DAC">Dhaka, Bangladesh – DAC</option>
+    <option value="BKK">Bangkok, Thailand – BKK</option>
+    <option value="DMK">Bangkok (Don Mueang), Thailand – DMK</option>
+    <option value="HKT">Phuket, Thailand – HKT</option>
+    <option value="SIN">Singapore – SIN</option>
+    <option value="KUL">Kuala Lumpur, Malaysia – KUL</option>
+    <option value="HKG">Hong Kong – HKG</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+    <option value="SGN">Ho Chi Minh City, Vietnam – SGN</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – Asia-Pacific & Africa -->
+  <optgroup label="International – Asia‑Pacific & Africa">
+    <option value="HND">Tokyo Haneda, Japan – HND</option>
+    <option value="NGO">Nagoya, Japan – NGO</option>
+    <option value="NRT">Tokyo Narita, Japan – NRT</option>
+    <option value="DPS">Denpasar (Bali), Indonesia – DPS</option>
+    <option value="MRU">Mauritius – MRU</option>
+    <option value="ADD">Addis Ababa, Ethiopia – ADD</option>
+  </optgroup>
+
+  <!-- International – Europe -->
+  <optgroup label="International – Europe">
+    <option value="LHR">London Heathrow, UK – LHR</option>
+    <option value="AMS">Amsterdam, Netherlands – AMS</option>
+    <option value="FRA">Frankfurt, Germany – FRA</option>
+    <option value="MUC">Munich, Germany – MUC</option>
+    <option value="CDG">Paris CDG, France – CDG</option>
+    <option value="ZRH">Zurich, Switzerland – ZRH</option>
+    <option value="VIE">Vienna, Austria – VIE</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – North America & Oceania -->
+  <optgroup label="International – North America & Oceania">
+    <option value="SFO">San Francisco, USA – SFO</option>
+    <option value="SYD">Sydney, Australia – SYD</option>
+  </optgroup>
+</select>
+
+
+      <!-- Arrival Dropdown -->
+    <select name="arrival" class="custom-select searchable" required>
+
+        <option value="">Arrival</option>
+        <!-- same options as departure -->
+         <optgroup label="India">
+    <option value="BLR">Bengaluru (Kempegowda) – BLR</option>
+    <option value="IXE">Mangaluru – IXE</option>
+    <option value="HBX">Hubli – HBX</option>
+    <option value="MYQ">Mysuru – MYQ</option>
+    <option value="IXG">Belgaum – IXG</option>
+    <option value="DEL">Delhi (Indira Gandhi) – DEL</option>
+    <option value="BOM">Mumbai (Chhatrapati Shivaji) – BOM</option>
+    <option value="MAA">Chennai – MAA</option>
+    <option value="CCU">Kolkata (Netaji Subhas Chandra Bose) – CCU</option>
+    <option value="HYD">Hyderabad (Rajiv Gandhi) – HYD</option>
+    <option value="AMD">Ahmedabad – AMD</option>
+    <option value="PNQ">Pune – PNQ</option>
+    <option value="COK">Kochi (Cochin) – COK</option>
+    <option value="GOI">Goa (Dabolim) – GOI</option>
+    <option value="JAI">Jaipur – JAI</option>
+    <option value="LKO">Lucknow – LKO</option>
+    <option value="VNS">Varanasi – VNS</option>
+    <option value="IDR">Indore – IDR</option>
+    <option value="GAU">Guwahati – GAU</option>
+  </optgroup>
+
+  <!-- International – Middle East & Gulf -->
+  <optgroup label="International – Middle East / Gulf">
+    <option value="DXB">Dubai, UAE – DXB</option>
+    <option value="AUH">Abu Dhabi, UAE – AUH</option>
+    <option value="SHJ">Sharjah, UAE – SHJ</option>
+    <option value="RAK">Ras Al Khaimah, UAE – RAK</option>
+    <option value="DOH">Doha, Qatar – DOH</option>
+    <option value="MCT">Muscat, Oman – MCT</option>
+    <option value="BJM">Bahrain – BAH</option>
+    <option value="KWI">Kuwait City, Kuwait – KWI</option>
+    <option value="JED">Jeddah, Saudi Arabia – JED</option>
+    <option value="RUH">Riyadh, Saudi Arabia – RUH</option>
+    <option value="DMM">Dammam, Saudi Arabia – DMM</option>
+    <option value="MED">Medina, Saudi Arabia – MED</option>
+  </optgroup>
+
+  <!-- International – South & Southeast Asia -->
+  <optgroup label="International – South & SE Asia">
+    <option value="CMB">Colombo, Sri Lanka – CMB</option>
+    <option value="MLE">Malé, Maldives – MLE</option>
+    <option value="KTM">Kathmandu, Nepal – KTM</option>
+    <option value="DAC">Dhaka, Bangladesh – DAC</option>
+    <option value="BKK">Bangkok, Thailand – BKK</option>
+    <option value="DMK">Bangkok (Don Mueang), Thailand – DMK</option>
+    <option value="HKT">Phuket, Thailand – HKT</option>
+    <option value="SIN">Singapore – SIN</option>
+    <option value="KUL">Kuala Lumpur, Malaysia – KUL</option>
+    <option value="HKG">Hong Kong – HKG</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+    <option value="SGN">Ho Chi Minh City, Vietnam – SGN</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – Asia-Pacific & Africa -->
+  <optgroup label="International – Asia‑Pacific & Africa">
+    <option value="HND">Tokyo Haneda, Japan – HND</option>
+    <option value="NGO">Nagoya, Japan – NGO</option>
+    <option value="NRT">Tokyo Narita, Japan – NRT</option>
+    <option value="DPS">Denpasar (Bali), Indonesia – DPS</option>
+    <option value="MRU">Mauritius – MRU</option>
+    <option value="ADD">Addis Ababa, Ethiopia – ADD</option>
+  </optgroup>
+
+  <!-- International – Europe -->
+  <optgroup label="International – Europe">
+    <option value="LHR">London Heathrow, UK – LHR</option>
+    <option value="AMS">Amsterdam, Netherlands – AMS</option>
+    <option value="FRA">Frankfurt, Germany – FRA</option>
+    <option value="MUC">Munich, Germany – MUC</option>
+    <option value="CDG">Paris CDG, France – CDG</option>
+    <option value="ZRH">Zurich, Switzerland – ZRH</option>
+    <option value="VIE">Vienna, Austria – VIE</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – North America & Oceania -->
+  <optgroup label="International – North America & Oceania">
+    <option value="SFO">San Francisco, USA – SFO</option>
+    <option value="SYD">Sydney, Australia – SYD</option>
+  </optgroup>
+      </select>
+      <input type="date"  name="departure_date[]" placeholder="Departure Date" required>
+      <input type="date"   name="return_date[]" placeholder="Return Date" required>
+      <input type="tel" name="mobile" placeholder="Mobile Number" required>
+      <input type="email" name="email" placeholder="Email ID" required>
+      <input type="number" name="passengers" placeholder="Number of Passengers" required>
+      <button type="submit">Submit Your Booking</button>
+    </form>
+  </div>
+  
+
+  <!-- MULTI TRIP -->
+ <!-- MULTI TRIP -->
+<div class="form-panel" id="multi">
+   <form class="booking-form" action="./process_booking.php" method="post">
+    <input type="hidden" name="trip_type" value="multi"> <!-- Hidden field to indicate trip type -->
+    <div id="multi-trip-container">
+      <div class="trip-segment">
+   <select name="departure" class="custom-select searchable" required>
+
+  <option value="">Select Departure</option>
+
+  <!-- India -->
+  <optgroup label="India">
+    <option value="BLR">Bengaluru (Kempegowda) – BLR</option>
+    <option value="IXE">Mangaluru – IXE</option>
+    <option value="HBX">Hubli – HBX</option>
+    <option value="MYQ">Mysuru – MYQ</option>
+    <option value="IXG">Belgaum – IXG</option>
+    <option value="DEL">Delhi (Indira Gandhi) – DEL</option>
+    <option value="BOM">Mumbai (Chhatrapati Shivaji) – BOM</option>
+    <option value="MAA">Chennai – MAA</option>
+    <option value="CCU">Kolkata (Netaji Subhas Chandra Bose) – CCU</option>
+    <option value="HYD">Hyderabad (Rajiv Gandhi) – HYD</option>
+    <option value="AMD">Ahmedabad – AMD</option>
+    <option value="PNQ">Pune – PNQ</option>
+    <option value="COK">Kochi (Cochin) – COK</option>
+    <option value="GOI">Goa (Dabolim) – GOI</option>
+    <option value="JAI">Jaipur – JAI</option>
+    <option value="LKO">Lucknow – LKO</option>
+    <option value="VNS">Varanasi – VNS</option>
+    <option value="IDR">Indore – IDR</option>
+    <option value="GAU">Guwahati – GAU</option>
+  </optgroup>
+
+  <!-- International – Middle East & Gulf -->
+  <optgroup label="International – Middle East / Gulf">
+    <option value="DXB">Dubai, UAE – DXB</option>
+    <option value="AUH">Abu Dhabi, UAE – AUH</option>
+    <option value="SHJ">Sharjah, UAE – SHJ</option>
+    <option value="RAK">Ras Al Khaimah, UAE – RAK</option>
+    <option value="DOH">Doha, Qatar – DOH</option>
+    <option value="MCT">Muscat, Oman – MCT</option>
+    <option value="BJM">Bahrain – BAH</option>
+    <option value="KWI">Kuwait City, Kuwait – KWI</option>
+    <option value="JED">Jeddah, Saudi Arabia – JED</option>
+    <option value="RUH">Riyadh, Saudi Arabia – RUH</option>
+    <option value="DMM">Dammam, Saudi Arabia – DMM</option>
+    <option value="MED">Medina, Saudi Arabia – MED</option>
+  </optgroup>
+
+  <!-- International – South & Southeast Asia -->
+  <optgroup label="International – South & SE Asia">
+    <option value="CMB">Colombo, Sri Lanka – CMB</option>
+    <option value="MLE">Malé, Maldives – MLE</option>
+    <option value="KTM">Kathmandu, Nepal – KTM</option>
+    <option value="DAC">Dhaka, Bangladesh – DAC</option>
+    <option value="BKK">Bangkok, Thailand – BKK</option>
+    <option value="DMK">Bangkok (Don Mueang), Thailand – DMK</option>
+    <option value="HKT">Phuket, Thailand – HKT</option>
+    <option value="SIN">Singapore – SIN</option>
+    <option value="KUL">Kuala Lumpur, Malaysia – KUL</option>
+    <option value="HKG">Hong Kong – HKG</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+    <option value="SGN">Ho Chi Minh City, Vietnam – SGN</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – Asia-Pacific & Africa -->
+  <optgroup label="International – Asia‑Pacific & Africa">
+    <option value="HND">Tokyo Haneda, Japan – HND</option>
+    <option value="NGO">Nagoya, Japan – NGO</option>
+    <option value="NRT">Tokyo Narita, Japan – NRT</option>
+    <option value="DPS">Denpasar (Bali), Indonesia – DPS</option>
+    <option value="MRU">Mauritius – MRU</option>
+    <option value="ADD">Addis Ababa, Ethiopia – ADD</option>
+  </optgroup>
+
+  <!-- International – Europe -->
+  <optgroup label="International – Europe">
+    <option value="LHR">London Heathrow, UK – LHR</option>
+    <option value="AMS">Amsterdam, Netherlands – AMS</option>
+    <option value="FRA">Frankfurt, Germany – FRA</option>
+    <option value="MUC">Munich, Germany – MUC</option>
+    <option value="CDG">Paris CDG, France – CDG</option>
+    <option value="ZRH">Zurich, Switzerland – ZRH</option>
+    <option value="VIE">Vienna, Austria – VIE</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – North America & Oceania -->
+  <optgroup label="International – North America & Oceania">
+    <option value="SFO">San Francisco, USA – SFO</option>
+    <option value="SYD">Sydney, Australia – SYD</option>
+  </optgroup>
+</select>
+
+
+      <!-- Arrival Dropdown -->
+    <select name="arrival" class="custom-select searchable" required>
+
+        <option value="">Arrival</option>
+        <!-- same options as departure -->
+         <optgroup label="India">
+    <option value="BLR">Bengaluru (Kempegowda) – BLR</option>
+    <option value="IXE">Mangaluru – IXE</option>
+    <option value="HBX">Hubli – HBX</option>
+    <option value="MYQ">Mysuru – MYQ</option>
+    <option value="IXG">Belgaum – IXG</option>
+    <option value="DEL">Delhi (Indira Gandhi) – DEL</option>
+    <option value="BOM">Mumbai (Chhatrapati Shivaji) – BOM</option>
+    <option value="MAA">Chennai – MAA</option>
+    <option value="CCU">Kolkata (Netaji Subhas Chandra Bose) – CCU</option>
+    <option value="HYD">Hyderabad (Rajiv Gandhi) – HYD</option>
+    <option value="AMD">Ahmedabad – AMD</option>
+    <option value="PNQ">Pune – PNQ</option>
+    <option value="COK">Kochi (Cochin) – COK</option>
+    <option value="GOI">Goa (Dabolim) – GOI</option>
+    <option value="JAI">Jaipur – JAI</option>
+    <option value="LKO">Lucknow – LKO</option>
+    <option value="VNS">Varanasi – VNS</option>
+    <option value="IDR">Indore – IDR</option>
+    <option value="GAU">Guwahati – GAU</option>
+  </optgroup>
+
+  <!-- International – Middle East & Gulf -->
+  <optgroup label="International – Middle East / Gulf">
+    <option value="DXB">Dubai, UAE – DXB</option>
+    <option value="AUH">Abu Dhabi, UAE – AUH</option>
+    <option value="SHJ">Sharjah, UAE – SHJ</option>
+    <option value="RAK">Ras Al Khaimah, UAE – RAK</option>
+    <option value="DOH">Doha, Qatar – DOH</option>
+    <option value="MCT">Muscat, Oman – MCT</option>
+    <option value="BJM">Bahrain – BAH</option>
+    <option value="KWI">Kuwait City, Kuwait – KWI</option>
+    <option value="JED">Jeddah, Saudi Arabia – JED</option>
+    <option value="RUH">Riyadh, Saudi Arabia – RUH</option>
+    <option value="DMM">Dammam, Saudi Arabia – DMM</option>
+    <option value="MED">Medina, Saudi Arabia – MED</option>
+  </optgroup>
+
+  <!-- International – South & Southeast Asia -->
+  <optgroup label="International – South & SE Asia">
+    <option value="CMB">Colombo, Sri Lanka – CMB</option>
+    <option value="MLE">Malé, Maldives – MLE</option>
+    <option value="KTM">Kathmandu, Nepal – KTM</option>
+    <option value="DAC">Dhaka, Bangladesh – DAC</option>
+    <option value="BKK">Bangkok, Thailand – BKK</option>
+    <option value="DMK">Bangkok (Don Mueang), Thailand – DMK</option>
+    <option value="HKT">Phuket, Thailand – HKT</option>
+    <option value="SIN">Singapore – SIN</option>
+    <option value="KUL">Kuala Lumpur, Malaysia – KUL</option>
+    <option value="HKG">Hong Kong – HKG</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+    <option value="SGN">Ho Chi Minh City, Vietnam – SGN</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – Asia-Pacific & Africa -->
+  <optgroup label="International – Asia‑Pacific & Africa">
+    <option value="HND">Tokyo Haneda, Japan – HND</option>
+    <option value="NGO">Nagoya, Japan – NGO</option>
+    <option value="NRT">Tokyo Narita, Japan – NRT</option>
+    <option value="DPS">Denpasar (Bali), Indonesia – DPS</option>
+    <option value="MRU">Mauritius – MRU</option>
+    <option value="ADD">Addis Ababa, Ethiopia – ADD</option>
+  </optgroup>
+
+  <!-- International – Europe -->
+  <optgroup label="International – Europe">
+    <option value="LHR">London Heathrow, UK – LHR</option>
+    <option value="AMS">Amsterdam, Netherlands – AMS</option>
+    <option value="FRA">Frankfurt, Germany – FRA</option>
+    <option value="MUC">Munich, Germany – MUC</option>
+    <option value="CDG">Paris CDG, France – CDG</option>
+    <option value="ZRH">Zurich, Switzerland – ZRH</option>
+    <option value="VIE">Vienna, Austria – VIE</option>
+    <option value="HAN">Hanoi, Vietnam – HAN</option>
+  </optgroup>
+
+  <!-- International – North America & Oceania -->
+  <optgroup label="International – North America & Oceania">
+    <option value="SFO">San Francisco, USA – SFO</option>
+    <option value="SYD">Sydney, Australia – SYD</option>
+  </optgroup>
+      </select>
+
+        <!-- <input type="date" name="date[]" required> -->
+      <input type="date"  name="departure_date[]" placeholder="Departure Date" required>
+      <input type="date"   name="return_date[]" placeholder="Return Date" required>
+      
+      </div>
+    </div>
+
+    <div style="flex: 1 1 100%; text-align: center;">
+      <button type="button" onclick="addTripSegment()" style="margin: 10px 0; padding: 8px 16px;">+ Add Another Trip</button>
+    </div>
+
+    <!-- Contact Info Row -->
+    <div class="form-row">
+      <input type="tel" name="mobile" placeholder="Mobile Number" required>
+      <input type="email" name="email" placeholder="Email ID" required>
+      <input type="number" name="passengers" placeholder="Number of Passengers" required>
+    </div>
+
+    <div style="flex: 1 1 100%; text-align: center; margin-top: 10px;">
+      <button type="submit" class="submit-btn">Submit Your Booking</button>
+    </div>
+  </form>
+</div>
+
+</section>
+
+<script>
+  const tabs = document.querySelectorAll(".tab");
+  const panels = document.querySelectorAll(".form-panel");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      panels.forEach(panel => panel.classList.remove("active"));
+      document.getElementById(tab.dataset.tab).classList.add("active");
+    });
+  });
+</script>
+<script>
+function addTripSegment() {
+  const container = document.getElementById("multi-trip-container");
+  const segment = document.createElement("div");
+  segment.classList.add("trip-segment");
+  segment.style.marginTop = "10px";
+
+  segment.innerHTML = `
+    <select name="departure[]" required>
+      <option value="">Departure</option>
+      <option value="BLR">Bangalore (BLR)</option>
+      <option value="DEL">Delhi (DEL)</option>
+      <option value="BOM">Mumbai (BOM)</option>
+      <!-- Add more as needed -->
+    </select>
+
+    <select name="arrival[]" required>
+      <option value="">Arrival</option>
+      <option value="IXE">Mangalore (IXE)</option>
+      <option value="MAA">Chennai (MAA)</option>
+      <option value="HYD">Hyderabad (HYD)</option>
+      <!-- Add more as needed -->
+    </select>
+
+    <input type="date" name="date[]" required>
+  `;
+
+  container.appendChild(segment);
+}
+</script>
+<script>
+  $(document).ready(function() {
+    // Apply Select2 to all elements with class "searchable"
+    $('.searchable').select2({
+      placeholder: 'Select an option',
+      allowClear: true
+    });
+  });
+
+  // If you add trip segments dynamically, reinitialize Select2 on the new dropdowns
+  function addTripSegment() {
+    const segmentHTML = `
+      <div class="trip-segment">
+        <select name="departure" class="custom-select searchable" required>
+          ${$('#departure').html()}
+        </select>
+        <select name="arrival" class="searchable" required>
+          ${$('#arrival').html()}
+        </select>
+        <input type="date" name="departure_date[]" required>
+        <input type="date" name="return_date[]" required>
+      </div>
+    `;
+    $('#multi-trip-container').append(segmentHTML);
+
+    // Re-initialize Select2 for new elements
+    $('.searchable').select2({
+      placeholder: 'Select an option',
+      allowClear: true
+    });
+  }
+</script>
+
+<style>
+
+ select.searchable,
+select.custom-select {
+  padding: 10px;
+  width: 100%;
+  max-width: 230px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  background-color: #fff;
+}
+ 
+  /* Add space below form section */
+.form-panel {
+  margin-bottom: 40px; /* Space between form and background image section */
+}
+
+/* Add space between last input and submit button */
+.booking-form input[name="passengers"] {
+  margin-right: 10px;
+  margin-bottom: 15px; /* Gap between input and button */
+}
+
+/* Optional: Add padding around the whole form */
+.booking-form {
+  padding: 20px;
+}
+
+/* Space between .tabs and form */
+.tabs {
+  margin-bottom: 20px;
+}
+
+/* Responsive cleanup (optional) */
+.booking-form input,
+.booking-form select {
+  margin-bottom: 10px;
+}
+
+</style>
+<style>
+  .booking-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Adds spacing between inputs */
+  justify-content: space-between;
+}
+
+.booking-form select,
+.booking-form input[type="date"],
+.booking-form input[type="tel"],
+.booking-form input[type="email"],
+.booking-form input[type="number"] {
+  flex: 1 1 200px; /* Responsive width */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Specific fix for Number of Passengers to make it smaller */
+.booking-form input[type="number"][placeholder="Number of Passengers"] {
+  flex: 0 0 150px; /* Restrict its width */
+}
+
+
+
+
+</style>
+
+
+<style>
+  .booking-section {
+      background: #fff;
+      padding: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border: none;
+      background: #f0f0f0;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .tab.active {
+      background: #007bff;
+      color: white;
+    }
+
+    .booking-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .booking-form select,
+    .booking-form input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      flex: 1 1 220px;
+    }
+
+    .booking-form button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .form-panel {
+      display: none;
+    }
+
+    .form-panel.active {
+      display: block;
+    }
+</style>
 <!-- Thank You Message -->
 <div id="thankYouMessage" style="display:none; text-align:center; margin-top:20px; font-size:20px; color:green;">
   Thank you for your booking query.<br>Our representative will get in touch with you shortly.
@@ -172,458 +1270,6 @@
 </style>
 
 <!-- JavaScript -->
-<script>
-let tripCounter = 1;
-function showForm(type) {
-  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-  if (type === 'round') document.querySelectorAll('.tab')[0].classList.add('active');
-  if (type === 'oneway') document.querySelectorAll('.tab')[1].classList.add('active');
-  if (type === 'multi') document.querySelectorAll('.tab')[2].classList.add('active');
-
-  const formFields = document.getElementById('formFields');
-  formFields.innerHTML = '';
-
-  if (type === 'round') {
-    formFields.innerHTML = `
-      <select required>
-  <option value="" disabled selected>Departure</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-
-
-<select required>
-  <option value="" disabled selected>Arrival</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-      <input type="date" required placeholder="Departure Date" />
-      <input type="date" required placeholder="Return Date" />
-    `;
-  } 
-  else if (type === 'oneway') {
-    formFields.innerHTML = `
-     <select required>
-  <option value="" disabled selected>Departure</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-
-
-<select required>
-  <option value="" disabled selected>Arrival</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-      <input type="date" required placeholder="Departure Date" />
-      <input type="date" required placeholder="Return Date" />
-    `;
-  } 
-  else if (type === 'multi') {
-    formFields.innerHTML = `
-      <div id="multiTrips">
-        <div class="trip-set">
-         <select required>
-  <option value="" disabled selected>Departure</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-
-
-<select required>
-  <option value="" disabled selected>Arrival</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-          <input type="date" required placeholder="Departure Date" />
-        </div>
-      </div>
-      <button type="button" class="add-trip-btn" onclick="addAnotherTrip()">+ Add Another Trip</button>
-    `;
-  }
-}
-
-function addAnotherTrip() {
-  const tripSet = document.createElement('div');
-  tripSet.className = 'trip-set';
-  tripSet.innerHTML = `
-   <select required>
-  <option value="" disabled selected>Departure</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-
-
-<select required>
-  <option value="" disabled selected>Arrival</option>
-
-  <!-- Karnataka -->
-  <option>Bangalore (BLR)</option>
-  <option>Mangalore (IXE)</option>
-  <option>Hubli (HBX)</option>
-  <option>Mysuru (MYQ)</option>
-  <option>Belgaum (IXG)</option>
-
-  <!-- Major Indian Cities -->
-  <option>Delhi (DEL)</option>
-  <option>Mumbai (BOM)</option>
-  <option>Chennai (MAA)</option>
-  <option>Kolkata (CCU)</option>
-  <option>Hyderabad (HYD)</option>
-  <option>Ahmedabad (AMD)</option>
-  <option>Pune (PNQ)</option>
-  <option>Kochi (COK)</option>
-  <option>Goa (GOI)</option>
-  <option>Jaipur (JAI)</option>
-  <option>Lucknow (LKO)</option>
-  <option>Varanasi (VNS)</option>
-  <option>Indore (IDR)</option>
-  <option>Guwahati (GAU)</option>
-  <option>Bhubaneswar (BBI)</option>
-
-  <!-- International -->
-  <option>New York (JFK)</option>
-  <option>Los Angeles (LAX)</option>
-  <option>London (LHR)</option>
-  <option>Paris (CDG)</option>
-  <option>Dubai (DXB)</option>
-  <option>Singapore (SIN)</option>
-  <option>Hong Kong (HKG)</option>
-  <option>Tokyo (NRT)</option>
-  <option>Sydney (SYD)</option>
-  <option>Toronto (YYZ)</option>
-  <option>Frankfurt (FRA)</option>
-  <option>Zurich (ZRH)</option>
-  <option>Amsterdam (AMS)</option>
-  <option>Doha (DOH)</option>
-  <option>Miami (MIA)</option>
-  <option>San Francisco (SFO)</option>
-  <option>Bangkok (BKK)</option>
-  <option>Johannesburg (JNB)</option>
-  <option>São Paulo (GRU)</option>
-</select>
-
-    <input type="date" required placeholder="Departure Date" />
-     <button type="button" onclick="this.parentElement.remove()" style="margin-left:10px; background:red; color:white; border:none; border-radius:5px; padding:5px 10px;">Remove</button>
-  `;
-  document.getElementById('multiTrips').appendChild(tripSet);
-}
-
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  document.getElementById("thankYouMessage").style.display = "block";
-  document.getElementById("bookingForm").style.display = "none";
-});
-</script>
-
 
 
 
@@ -639,6 +1285,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
   color: #fff;
   text-align: right;
   padding-right: 50px;
+  filter: brightness(1.6);
 }
 .hero::before {
   content: '';
@@ -735,7 +1382,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     
   .hero-section {
     /* background-color: #0a2147; */
-    background-image: url('./img/background-imf.png'); /* Optional pattern */
+    background-image: url('./img/BoG-Elections22_v3_18MAY21_JB_1500x620.png'); /* Optional pattern */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -791,7 +1438,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 </style>
 
   <!-- Next Steps Section -->
-<section class="next-steps">
+<!-- <section class="next-steps">
     <h2>LET'S TAKE THE NEXT STEPS</h2>
     <div class="buttons">
       <a href="contact.html">
@@ -799,7 +1446,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 </a>
       <button class="outline-btn">Blusky Jets BROCHURE</button>
     </div>
-  </section>
+  </section> -->
   
   <!-- Footer -->
  <footer class="footer">
@@ -813,13 +1460,11 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
   </span>
   </div>
 </div>
-    <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61576879101436" aria-label="Facebook">
+     <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61577201976549 " aria-label="Facebook">
           <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z" /></svg>
         </a>
-       <a href="https://www.linkedin.com/in/finaxa-investments-930a6b367/
-
-" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/finaxa-investments/about/?viewAsMember=true " aria-label="LinkedIn">
   <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 
       0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 
@@ -829,11 +1474,11 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
       1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
   </svg>
 </a>
-
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/finaxainvestments/" aria-label="Instagram">
           <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
         </a>
       </div>
+      
       
   </footer>
   <!-- WhatsApp Floating Button -->

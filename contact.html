@@ -1,46 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Blusky Jets</title>
-  <link rel="stylesheet" href="./css/style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  
 </head>
 <body>
     <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
         <div class="logo" style="display: flex; align-items: center;">
           <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 250px;">
         </div>
-      
+       <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
         <!-- Wrap NAV + Button Together -->
         <div style="display: flex; align-items: center; gap: 20px;">
           <nav>
-            <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; font-weight: bold; margin: 0;">
-              <li><a href="index.html" style="text-decoration: none; color: black;">HOME</a></li>
-              <li><a href="about.html" style="text-decoration: none; color: black;">ABOUT US</a></li>
-              <li><a href="service.html" style="text-decoration: none; color: black;">SERVICES</a></li>
-              <li><a href="fleet.html" style="text-decoration: none; color: black;">FLEET</a></li>
-              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li> -->
-              <li><a href="booking.html" style="text-decoration: none; color: black;">BOOKING</a></li>
-              <li><a href="contact.html" style="text-decoration: none; color: black;">CONTACT US</a></li>
+            <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; padding: 0; margin: 0;">
+              <li><a href="index.html" style="text-decoration: none; color: black;  font-weight: bold;">HOME</a></li>
+              <li><a href="about.html" style="text-decoration: none; color: black;  font-weight: bold;">ABOUT US</a></li>
+              <li><a href="service.html" style="text-decoration: none; color: black;  font-weight: bold;">SERVICES</a></li>
+              <li><a href="fleet.html" style="text-decoration: none; color: black;  font-weight: bold;">FLEET</a></li>
+              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;  font-weight: bold;">INVESTMENTS</a></li> -->
+              <li><a href="booking.html" style="text-decoration: none; color: black;  font-weight: bold;">BOOKING</a></li>
+              <li><a href="contact.html" style="text-decoration: none; color: black; font-weight: bold;">CONTACT US</a></li>
             </ul>
           </nav>
       
-        
                  <!-- <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
   ENQUIRY NOW
 </button> -->
+ <nav class="mobile-nav" id="mobileMenu">
+  <div class="close-btn" onclick="toggleMobileMenu()">×</div>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="service.html">SERVICES</a></li>
+    <li><a href="fleet.html">FLEET</a></li>
+    <li><a href="booking.html">BOOKING</a></li>
+    <li><a href="contact.html">CONTACT US</a></li>
+  </ul>
+</nav>
+
+
+<script>
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+</script>
+
+
         </div>
       </header>
+    
+  
+  <style>
+  
+
+    /* Hide menu toggle on desktop */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: black;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 270px;
+        height: 100%;
+        background: white;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        padding: 20px;
+        animation: slideIn 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .mobile-menu li {
+        margin-bottom: 15px;
+      }
+
+      .mobile-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.2s;
+      }
+
+      .mobile-menu a:hover {
+        background: #f0f0f0;
+      }
+
+      .close-btn {
+        font-size: 24px;
+        text-align: right;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      @keyframes slideIn {
+        from {
+          right: -300px;
+          opacity: 0;
+        }
+        to {
+          right: 0;
+          opacity: 1;
+        }
+      }
+    }
+
+
+    /* Hide mobile nav by default */
+.mobile-nav {
+  display: none;
+}
+
+/* Show only hamburger icon on small screens */
+.mobile-menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hide desktop nav on mobile */
+@media screen and (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .mobile-nav.show {
+    display: block;
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-nav-links li {
+    margin: 10px 0;
+  }
+
+  .mobile-nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+/* HIDE by default */
+.mobile-nav {
+  display: none;
+}
+
+/* SHOW when toggled */
+.mobile-nav.show {
+  display: block;
+  background-color: white;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+  .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: black;
+    }
+
+    /* Mobile nav hidden by default */
+    .mobile-nav {
+      display: none;
+    }
+
+    .mobile-nav.show {
+      display: block;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 260px;
+      height: 100%;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+
+    .mobile-nav .close-btn {
+      text-align: right;
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mobile-nav-links li {
+      margin: 15px 0;
+    }
+
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    @keyframes slideIn {
+      from {
+        right: -300px;
+        opacity: 0;
+      }
+      to {
+        right: 0;
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+  @media (max-width: 768px) {
+  .header {
+    padding: 6px 0px; /* Removed left & right padding */
+    height: auto;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;  /* Align logo left, menu icon right */
+    align-items: center;
+    width: 100%;
+    padding: 0;                      /* No padding */
+    margin: 0;
+  }
+
+  .logo {
+    margin-left: 0;   /* No margin from left */
+    padding-left: 0;  /* No padding from left */
+  }
+
+  .logo img {
+    width: auto;
+    height: 60px !important;
+    width: 120px !important;
+    object-fit: contain;
+    display: block;
+  }
+   .menu-toggle {
+    font-size: 24px;
+    padding: 6px;
+    margin-left: auto;     /* Push menu to right */
+    color: #000;
+    background: none;
+    border: none;
+  }
+}
+
+
+  </style>
+
+      
+      
+<style>
+
+  .menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+   /* Default hidden menu icon */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Responsive Styles for mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Optional: hide nav links in row format */
+  nav {
+    position: relative;
+  }
+}
+
+  </style>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  });
+</script>
+
+
+
+</head>
+<body>
+
 
 
       <section class="hero">
         <div class="hero-content">
-          <h1>Travel without compromise</h1>
-          <p>Blusky Jets offers</p>
+          <!-- <h1>Travel without compromise</h1> -->
+          <!-- <p>Blusky Jets offers</p> -->
         </div>
       </section>
 
@@ -174,10 +550,11 @@
   </section>
 
 <style>
+  
     
   .hero-sections {
     /* background-color: #0a2147; */
-    background-image: url('./img/background-imf.png'); /* Optional pattern */
+    background-image: url('./img/BoG-Elections22_v3_18MAY21_JB_1500x620.png'); /* Optional pattern */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -185,6 +562,7 @@
     text-align: center;
     padding: 90px 20px;
     /* height: 400px; */
+    /* filter: brightness(1.6); 1 is normal, increase to brighten */
   }
 
   .hero-sections h1 {
@@ -256,12 +634,10 @@
       </div>
 </div>
     <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61576879101436" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61577201976549 " aria-label="Facebook">
           <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z" /></svg>
         </a>
-        <a href="https://www.linkedin.com/in/finaxa-investments-930a6b367/
-
-" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/finaxa-investments/about/?viewAsMember=true " aria-label="LinkedIn">
   <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 
       0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 
@@ -271,7 +647,7 @@
       1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
   </svg>
 </a>
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/finaxainvestments/" aria-label="Instagram">
           <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
         </a>
       </div>
@@ -329,39 +705,58 @@
       
 
       <style>
-         .hero {
-  background: url('img/luxury-design-private-jet-flying-clouds-ai-generated-image.jpg') no-repeat center center/cover;
+       .hero {
+  background: url('./img/luxury-design-private-jet-flying-clouds-ai-generated-image.jpg') no-repeat center center/cover;
   height: 70vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Move to right */
+  justify-content: flex-end;
   position: relative;
   color: #fff;
   text-align: right;
-  padding-right: 250px;
+  padding: 0 10%;
+  filter: brightness(1.1); /* Slightly brightened */
 }
 
+/* Dark overlay for better text contrast */
 .hero::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Reduced opacity for brightness */
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 500px; /* Set maximum width */
-  white-space: nowrap; /* ✨ Prevent breaking into two lines */
+  max-width: 500px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh; /* Shorter height on mobile */
+    justify-content: center; /* Center-align content */
+    text-align: center; /* Center text */
+    padding: 0 5%; /* Reduced padding */
+    filter: brightness(1.2); /* Brighter on mobile */
+  }
 
-.hero p {
-  font-size: 1.5rem;
+  .hero::before {
+    background: rgba(0, 0, 0, 0.2); /* Lighter overlay for mobile */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* Smaller heading */
+    white-space: normal; /* Allow text wrapping */
+  }
+
+  .hero p {
+    font-size: 1rem; /* Smaller paragraph */
+  }
 }
 
 

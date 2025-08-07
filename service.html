@@ -1,453 +1,920 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blusky Jets</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blusky Jets - Premium Private Jet Charter Services">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Blusky Jets | Private Jet Charter Services</title>
+  <style>
+    
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+    
+    /* Navigation */
+    .desktop-nav {
+      display: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+    
+    .nav-links li a {
+      font-weight: 600;
+      font-size: 15px;
+      color: #222;
+      transition: color 0.3s;
+    }
+    
+    .nav-links li a:hover {
+      color: #007bff;
+    }
+    
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #222;
+      z-index: 1001;
+    }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 80px 25px 30px;
+      transition: right 0.3s ease;
+    }
+    
+    .mobile-nav.show {
+      right: 0;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #222;
+    }
+    
+    .mobile-nav-links li {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+    
+    .mobile-nav-links a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #222;
+      display: block;
+      padding: 8px 0;
+    }
+    
+    /* Hero Section - Optimized for Mobile */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      margin-top: 80px;
+      background: url('./img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      line-height: 1.3;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    /* Main Content Sections */
+    .section {
+      padding: 40px 5%;
+    }
+    
+    .section-title {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #222;
+      margin: 0 auto 30px;
+    }
+    
+    /* Jet Charter Section */
+    .jet-section {
+      background: #f9f9f9;
+    }
+    
+    .jet-row {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .jet-text h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #222;
+    }
+    
+    .jet-text p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .jet-image img {
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    /* Feature Items */
+    .feature-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      margin-top: 3px;
+    }
+    
+    .feature-text h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    
+    .feature-text p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    /* Air Ambulance Section */
+    .air-ambulance {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .air-ambulance h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    .air-ambulance p {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    
+    /* Assurance Section */
+    .assurance-section {
+      text-align: center;
+      padding: 40px 5%;
+      background: #fff;
+    }
+    
+    .assurance-section h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #003366;
+    }
+    
+    .blue-line {
+      width: 60px;
+      height: 3px;
+      background: #004080;
+      margin: 0 auto 20px;
+    }
+    
+    .assurance-section p {
+      font-size: 15px;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: url('./img/BoG-Elections22_v3_18MAY21_JB_1500x620.png') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 60px 5%;
+      position: relative;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .cta-section h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    
+    .cta-section p {
+      font-size: 15px;
+      color: #eee;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      background: #fff;
+      color: #222;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 40px 5%;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 20px;
+    }
+    
+    .footer-links span {
+      font-size: 14px;
+      color: #aaa;
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      font-weight: 600;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.3s;
+    }
+    
+    .social-icons a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    /* WhatsApp Floating Button */
+    .whatsapp-tab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: transform 0.3s;
+    }
+    
+    .whatsapp-tab:hover {
+      transform: scale(1.1);
+    }
+    
+    .whatsapp-tab img {
+      width: 28px;
+      height: 28px;
+    }
+    
+    /* Desktop Styles */
+    @media (min-width: 768px) {
+      /* Header */
+      header {
+        padding: 15px 5%;
+      }
+      
+      .logo img {
+        height: 60px;
+      }
+      
+      /* Navigation */
+      .menu-toggle {
+        display: none;
+      }
+      
+      .desktop-nav {
+        display: block;
+      }
+      
+      /* Hero */
+      .hero {
+        height: 70vh;
+        margin-top: 90px;
+        justify-content: flex-end;
+        text-align: right;
+        padding-right: 10%;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      /* Sections */
+      .section {
+        padding: 60px 5%;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      /* Jet Section */
+      .jet-row {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .jet-text, .jet-image {
+        flex: 1;
+      }
+      
+      .jet-text h2 {
+        font-size: 26px;
+      }
+      
+      /* Air Ambulance */
+      .air-ambulance {
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+      }
+      
+      /* CTA Section */
+      .cta-section h1 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      /* Larger desktop adjustments */
+      header {
+        padding: 15px 8%;
+      }
+      
+      .section {
+        padding: 80px 8%;
+      }
+      
+      .hero {
+        padding-right: 15%;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+      overflow: hidden;
+    }
+  </style>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+    
+    /* Navigation */
+    .desktop-nav {
+      display: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+    
+    .nav-links li a {
+      font-weight: 600;
+      font-size: 15px;
+      color: #222;
+      transition: color 0.3s;
+    }
+    
+    .nav-links li a:hover {
+      color: #007bff;
+    }
+    
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #222;
+      z-index: 1001;
+    }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 80px 25px 30px;
+      transition: right 0.3s ease;
+    }
+    
+    .mobile-nav.show {
+      right: 0;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #222;
+    }
+    
+    .mobile-nav-links li {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+    
+    .mobile-nav-links a {
+      font-weight: 600;
+      font-size: 16px;
+      color: #222;
+      display: block;
+      padding: 8px 0;
+    }
+    
+    /* Hero Section - Updated for Mobile */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: auto; /* Changed from fixed height */
+      min-height: 300px;
+      overflow: hidden;
+      margin-top: 80px; /* Matches header height */
+      background: url('./img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 60px 20px; /* Added padding */
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+      max-width: 800px;
+      width: 100%;
+    }
+    
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      line-height: 1.3;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .hero p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .hero-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+    
+    .hero-btn:hover {
+      background: #fff;
+      color: #222;
+    }
+
+    /* Rest of your existing CSS remains the same */
+    /* ... */
+    
+    /* Desktop Styles */
+    @media (min-width: 768px) {
+      /* Header */
+      header {
+        padding: 15px 5%;
+      }
+      
+      .logo img {
+        height: 60px;
+      }
+      
+      /* Navigation */
+      .menu-toggle {
+        display: none;
+      }
+      
+      .desktop-nav {
+        display: block;
+      }
+      
+      /* Hero */
+      .hero {
+        height: 60vh;
+        min-height: 500px;
+        margin-top: 90px;
+        justify-content: flex-end;
+        text-align: right;
+        padding-right: 10%;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content {
+        max-width: 50%;
+      }
+      
+      /* Rest of your desktop styles */
+    }
+    
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
-        <div class="logo" style="display: flex; align-items: center;">
-          <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 250px;">
-        </div>
-      
-        <!-- Wrap NAV + Button Together -->
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <nav>
-            <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; font-weight: bold; margin: 0;">
-              <li><a href="index.html" style="text-decoration: none; color: black;">HOME</a></li>
-              <li><a href="about.html" style="text-decoration: none; color: black;">ABOUT US</a></li>
-              <li><a href="service.html" style="text-decoration: none; color: black;">SERVICES</a></li>
-              <li><a href="fleet.html" style="text-decoration: none; color: black;">FLEET</a></li>
-              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li> -->
-              <li><a href="booking.html" style="text-decoration: none; color: black;">BOOKING</a></li>
-              <li><a href="contact.html" style="text-decoration: none; color: black;">CONTACT US</a></li>
-            </ul>
-          </nav>
-      
-        
-                 <!-- <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-  ENQUIRY NOW
-</button> -->
-        </div>
-      </header>
-
-
-      <section class="hero">
-        <div class="hero-content">
-          <h1>Travel Without Compromise</h1>
-          <!-- <p>Blusky Jets offers</p> -->
-        </div>
-      </section>
-
-      <div class="container">
-        <div class="image-section">
-          <img src="./img/cessna-citation-mustang-exterior-1540x960.jpg" alt="Private Jet" style="height: 400px;" />
-        </div>
-        <div class="content-section">
-          <h2>PRIVATE JET CHARTER</h2>
-          <div class="line"></div>
-          <div class="feature">
-            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;"/>
-            <p><strong>A fleet of over 2,400 safety-vetted private jets.</strong></p>
-          </div>
-          <div class="feature">
-            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
-            <p><strong>Seamless booking options through our mobile app or aviation experts.</strong></p>
-          </div>
-          <div class="feature">
-            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;"/>
-            <p><strong>Tailored solutions for business or leisure travel.</strong></p>
-          </div>
-        </div>
-      </div>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="./img/logo.png" alt="Blusky Jets Logo">
+    </div>
     
-<section style="padding: 60px 20px; max-width: 1200px; margin: auto; font-family: 'Arial', sans-serif;">
-  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
-    <!-- Image Section -->
-    <div style="flex: 1; min-width: 300px;">
-      <img src="./img/aebd3ab9bebace64171a9fc33341da97.jpeg" alt="Air Ambulance Jet" style="width: 100%; height: auto; border-radius: 8px;">
+    <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    
+    <nav class="desktop-nav">
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="service.html">SERVICES</a></li>
+        <li><a href="fleet.html">FLEET</a></li>
+        <li><a href="booking.html">BOOKING</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    
+    <nav class="mobile-nav" id="mobileMenu">
+      <div class="close-btn" onclick="toggleMobileMenu()">×</div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="service.html">SERVICES</a></li>
+        <li><a href="fleet.html">FLEET</a></li>
+        <li><a href="booking.html">BOOKING</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Travel Without Compromise</h1>
     </div>
-
-    <!-- Text Section -->
-    <div style="flex: 1; min-width: 300px;">
-      <h2 style="font-size: 28px; font-weight: bold; margin-bottom: 20px;">Air Ambulance Aircraft</h2>
-      <p style="font-size: 16px; line-height: 1.7;">
-        At Blusky Jets Air Ambulance, we understand the critical nature of international patient transfers, particularly from the Dubai to various locations across the globe. With our exceptional air ambulance services, we ensure safe, reliable, and seamless medical transport for patients requiring specialized care, even across vast distances.
-      </p>
-      <p style="font-size: 16px; line-height: 1.7;">
-        Mid to Long Range – along with the comfort and flexibility that a private jet offers – our Hawker 800 has many benefits for patients needing air medical transportation, with an approximate range of 2470nm/5 hours non-stop flight and capacity to extend its range worldwide with few fuel stops.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
-      <!-- <div class="investment-model" style="background-color: lightgray;">
-        <div class="investment-left">
-          <h3>HYBRID INVESTMENT MODEL</h3>
-          <div class="blue-line"></div>
-          <div class="investment-item">
-            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
-            <p>Fixed annual returns, paid quarterly.</p>
+  </section>
+  
+  <!-- Jet Charter Section -->
+  <section class="section jet-section">
+    <div class="container">
+      <div class="jet-row">
+        <div class="jet-image">
+          <img src="./img/cessna-citation-mustang-exterior-1540x960.jpg" alt="Private Jet">
+        </div>
+        <div class="jet-text">
+          <h2>PRIVATE JET CHARTER</h2>
+          <div class="divider"></div>
+          <div class="feature-item">
+            <img src="./img/download.png" alt="Icon" class="feature-icon">
+            <div class="feature-text">
+              <p><strong>A fleet of over 2,400 safety-vetted private jets</strong></p>
+            </div>
           </div>
-          <div class="investment-item">
-            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
-            <p>Exclusive flight hours for investors.</p>
+          <div class="feature-item">
+            <img src="./img/download.png" alt="Icon" class="feature-icon">
+            <div class="feature-text">
+              <p><strong>Seamless booking options through our mobile app or aviation experts</strong></p>
+            </div>
           </div>
-          <div class="investment-item">
-            <img src="./img/download.png" alt="Jet icon" style="width: 40px; height: 40px;" />
-            <p>A seamless blend of luxury travel and financial growth.</p>
+          <div class="feature-item">
+            <img src="./img/download.png" alt="Icon" class="feature-icon">
+            <div class="feature-text">
+              <p><strong>Tailored solutions for business or leisure travel</strong></p>
+            </div>
           </div>
         </div>
-        <div class="investment-right">
-          <img src="./img/service1.png" alt="Jet Interior" />
-        </div>
-      </div> -->
-      
-      <div class="assurance-section">
-        <h2 style="font-size: 40px;">Safety and Quality Assurance </h2>
-        <div class="blue-line center-line"></div>
-        <p style="font-size: 18px;">Every jet in our fleet adheres to the highest safety standards. Your peace of mind is our priority.</p>
       </div>
-
-      
-  <section class="hero-section">
-    <h1>Book Your Private Jet<br>with Blusky Jets</h1>
-    <p>
-      Blusky Jets is proud to be among the elite in the industry, recognized for our commitment to excellence.
-      As one of the few companies meeting the highest standards in private aviation, we deliver unparalleled safety,
-      quality, and service you can trust.
-      <!-- <br>We pride ourselves on offering a professional and personalised service. -->
-    </p>
-      <a href="booking.html">
-  <button class="btn">BOOK NOW</button>
-</a>
+    </div>
+  </section>
+  
+  <!-- Air Ambulance Section -->
+  <section class="section">
+    <div class="air-ambulance">
+      <div class="jet-image">
+        <img src="./img/aebd3ab9bebace64171a9fc33341da97.jpeg" alt="Air Ambulance Jet">
+      </div>
+      <div class="jet-text">
+        <h2>Air Ambulance Aircraft</h2>
+        <p>At Blusky Jets Air Ambulance, we understand the critical nature of international patient transfers, particularly from Dubai to various locations across the globe. With our exceptional air ambulance services, we ensure safe, reliable, and seamless medical transport for patients requiring specialized care, even across vast distances.</p>
+      </div>
+    </div>
   </section>
 
-<style>
-    
-  .hero-section {
-    /* background-color: #0a2147; */
-    background-image: url('./img/background-imf.png'); /* Optional pattern */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: #e0d6c7;
-    text-align: center;
-    padding: 90px 20px;
-    /* height: 400px; */
-  }
-
-  .hero-section h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    line-height: 1.4;
-    margin: 0 0 20px;
-  }
-
-  .hero-section p {
-    font-size: 15px;
-    color: #c9c9c9;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    line-height: 1.6;
-  }
-
-  .hero-section .btn {
-    border: 1.5px solid #fff;
-    padding: 12px 30px;
-    background-color: transparent;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .hero-section .btn:hover {
-    background-color: #fff;
-    color: #0a2147;
-  }
-
-  @media (max-width: 768px) {
-    .hero-section h1 {
-      font-size: 28px;
-    }
-
-    .hero-section p {
-      font-size: 14px;
-    }
-  }
-
-
-</style>
-
-  <!-- Next Steps Section -->
-<section class="next-steps">
-    <h2>LET'S TAKE THE NEXT STEPS</h2>
-    <div class="buttons">
-      <a href="contact.html">
-  <button class="outline-btn">CONTACT US</button>
-</a>
-      <button class="outline-btn">Blusky Jets BROCHURE</button>
+  <!-- Assurance Section -->
+  <section class="assurance-section">
+    <h2>Safety and Quality Assurance</h2>
+    <div class="blue-line"></div>
+    <p>Every jet in our fleet adheres to the highest safety standards. Your peace of mind is our priority.</p>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h1>Book Your Private Jet with Blusky Jets</h1>
+      <p>
+        Blusky Jets is proud to be among the elite in the industry, recognized for our commitment to excellence.
+        As one of the few companies meeting the highest standards in private aviation, we deliver unparalleled safety,
+        quality, and service you can trust.
+      </p>
+      <a href="booking.html">
+        <button class="btn">BOOK NOW</button>
+      </a>
     </div>
   </section>
   
   <!-- Footer -->
- <footer class="footer">
+  <footer class="footer">
     <div class="footer-links">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-  <!-- <a href="#">PRIVATE TERMINALS</a> -->
-  <span>© 2025 Blusky Jets, All Rights Reserved. Designed and developed by
-    <a href="https://shashwathagroups.in" target="_blank" style="text-decoration: none; color: inherit;">
-      Shaswatha Groups
-    </a>
-  </span>
-      </div>
-</div>
+      <span>© 2025 Blusky Jets, All Rights Reserved. Designed and developed by
+        <a href="https://shashwathagroups.in" target="_blank">Shaswatha Groups</a>
+      </span>
+    </div>
     <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61576879101436" aria-label="Facebook">
-          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z" /></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/finaxa-investments-930a6b367/
-
-" aria-label="LinkedIn">
-  <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 
-      0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 
-      0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 
-      1.75-.78 1.75-1.75 1.75zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
-      0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.76 
-      1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
-  </svg>
-</a>
-        <a href="#" aria-label="Instagram">
-          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
-        </a>
-      </div>
-      
+      <a href="https://www.facebook.com/profile.php?id=61577201976549" aria-label="Facebook">
+        <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z" /></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/finaxa-investments/about/?viewAsMember=true" aria-label="LinkedIn">
+        <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 
+            0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 
+            0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 
+            1.75-.78 1.75-1.75 1.75zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
+            0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.76 
+            1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/finaxainvestments/" aria-label="Instagram">
+        <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
+      </a>
+    </div>
   </footer>
   
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/7715841612" target="_blank" class="whatsapp-tab">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-      </a>
-      <style>
-        /* WhatsApp Tab Styling */
-        .whatsapp-tab {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          z-index: 1000;
-          background-color: #25d366;
-          border-radius: 50%;
-          width: 60px;
-          height: 60px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .whatsapp-tab:hover {
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-          transform: scale(1.05);
-        }
-        
-        .whatsapp-tab img {
-          width: 35px;
-          height: 35px;
-        }
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/7715841612" target="_blank" class="whatsapp-tab">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('show');
+      document.body.classList.toggle('no-scroll');
+    }
     
-        @media (max-width: 768px) {
-          .whatsapp-tab {
-            width: 50px;
-            height: 50px;
-          }
-    
-          .whatsapp-tab img {
-            width: 30px;
-            height: 30px;
-          }
-        }
-      </style>
-        
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('show');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+  </script>
 </body>
 </html>
-     
-      <style>
-       .hero {
-  background: url('img/AdobeStock_95731897-scaled-e1689773285422.jpeg') no-repeat center center/cover;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Move to right */
-  position: relative;
-  color: #fff;
-  text-align: right;
-  padding-right: 250px;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 500px; /* Set maximum width */
-  white-space: nowrap; /* ✨ Prevent breaking into two lines */
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.5rem;
-}
-
-
-
-
-
-.container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.image-section img {
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.content-section {
-  max-width: 600px;
-}
-
-.content-section h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.line {
-  width: 60px;
-  height: 3px;
-  background-color: #1e56a0;
-  margin-bottom: 30px;
-}
-
-.feature {
-  display: flex;
-  align-items: start;
-  margin-bottom: 20px;
-}
-
-.feature img {
-  width: 24px;
-  height: 24px;
-  margin-right: 15px;
-  margin-top: 3px;
-}
-
-.feature p {
-  color: #4a4a4a;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-
-.investment-model {
-  display: flex;
-  /* background-color: #e0dddb; */
-  padding: 40px;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.investment-left {
-  flex: 1;
-  max-width: 50%;
-}
-
-.investment-left h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.blue-line {
-  height: 3px;
-  width: 50px;
-  background-color: #004080;
-  margin-bottom: 20px;
-}
-
-.investment-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 15px;
-}
-
-.investment-item img {
-  width: 24px;
-  margin-right: 15px;
-  margin-top: 4px;
-}
-
-.investment-item p {
-  font-size: 16px;
-  color: #333;
-  margin: 0;
-}
-
-.investment-right {
-  flex: 1;
-  max-width: 50%;
-  padding-left: 40px;
-}
-
-.investment-right img {
-  width: 100%;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-/* Assurance Section */
-.assurance-section {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: white;
-}
-
-.assurance-section h2 {
-  color: #003366;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.center-line {
-  margin: 0 auto 20px auto;
-}
-
-.assurance-section p {
-  font-size: 16px;
-  color: #333;
-}
-
-
-      </style>

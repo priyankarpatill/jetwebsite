@@ -1,476 +1,702 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blusky Jets</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
+      color: #333;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Header Styles */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5%;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo img {
+      height: 70px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: #007bff;
+    }
+    
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: black;
+    }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      z-index: 1001;
+      padding: 20px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .mobile-nav.show {
+      transform: translateX(0);
+    }
+    
+    .close-btn {
+      font-size: 24px;
+      text-align: right;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+    
+    .mobile-nav-links {
+      list-style: none;
+    }
+    
+    .mobile-nav-links li {
+      margin-bottom: 20px;
+    }
+    
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: url('https://magellanjets.com/wp-content/uploads/2023/10/Bombardier-Global-6000-PrivateFly-AA9562.jpg') no-repeat center center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      color: #fff;
+      text-align: right;
+      padding: 0 10%;
+       filter: brightness(1.8);
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+    
+    /* Specs Section */
+    .specs-container {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 5%;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .specs-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    
+    .specs-info h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #000;
+    }
+    
+    .underline {
+      width: 40px;
+      height: 3px;
+      background-color: #0d3d91;
+      margin-bottom: 30px;
+    }
+    
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .spec-item {
+      flex: 1;
+    }
+    
+    .label {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 6px;
+    }
+    
+    .value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+    
+    .line {
+      height: 1px;
+      background-color: #ddd;
+      margin: 10px 0 20px;
+    }
+    
+    /* Content Sections */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 5%;
+      background-color: #e5e5e5;
+    }
+    
+    .left-content {
+      margin-bottom: 30px;
+    }
+    
+    .left-content h1 {
+      font-size: 28px;
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+    
+    .left-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    
+    .right-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .luxury-section {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 5%;
+      gap: 30px;
+    }
+    
+    .image-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .text-section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .text-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    
+    /* Booking Section */
+    .hero-sections {
+      background: url('./img/BoG-Elections22_v3_18MAY21_JB_1500x620.png') no-repeat center center/cover;
+      color: #e0d6c7;
+      text-align: center;
+      padding: 60px 5%;
+    }
+    
+    .hero-sections h1 {
+      font-size: 32px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    
+    .hero-sections p {
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
+    .btn {
+      border: 1.5px solid #fff;
+      padding: 12px 30px;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      background: #fff;
+      color: #0a2147;
+    }
+    
+    /* Footer */
+    footer {
+      background: #0a2147;
+      color: white;
+      padding: 30px 5%;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 20px;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .social-icons a {
+      color: white;
+      transition: opacity 0.3s;
+    }
+    
+    .social-icons a:hover {
+      opacity: 0.8;
+    }
+    
+    /* WhatsApp Button */
+    .whatsapp-tab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+    }
+    
+    .whatsapp-tab:hover {
+      transform: scale(1.1);
+    }
+    
+    .whatsapp-tab img {
+      width: 35px;
+      height: 35px;
+    }
+    
+    /* Desktop Styles */
+    @media (min-width: 768px) {
+      .logo img {
+        height: 90px;
+      }
+      
+      .hero {
+        padding-right: 15%;
+      }
+      
+      .hero p {
+        font-size: 2rem;
+      }
+      
+      .specs-container {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .specs-image {
+        flex: 1;
+      }
+      
+      .specs-info {
+        flex: 1;
+      }
+      
+      .hero-section {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .left-content {
+        padding-right: 40px;
+      }
+      
+      .luxury-section {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .hero-sections h1 {
+        font-size: 40px;
+      }
+    }
+    
+    /* Mobile Optimization */
+    @media (max-width: 767px) {
+      header {
+        padding: 10px 5%;
+      }
+      
+      .logo img {
+        height: 60px;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .hero {
+        height: 50vh;
+        padding: 0 5%;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .specs-container {
+        padding: 30px 5%;
+      }
+      
+      .hero-section, .luxury-section {
+        padding: 30px 5%;
+      }
+      
+      .hero-sections {
+        padding: 50px 5%;
+      }
+      
+      .hero-sections h1 {
+        font-size: 28px;
+      }
+      
+      .whatsapp-tab {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .whatsapp-tab img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 50px; background: #fff;">
-        <div class="logo" style="display: flex; align-items: center;">
-          <img src="./img/logo.png" alt="Logo" style="height: 90px; width: 250px;">
-        </div>
+  <header>
+    <div class="logo">
+      <img src="./img/logo.png" alt="Blusky Jets Logo">
+    </div>
+    <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="service.html">SERVICES</a></li>
+        <li><a href="fleet.html">FLEET</a></li>
+        <li><a href="booking.html">BOOKING</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    
+    <nav class="mobile-nav" id="mobileMenu">
+      <div class="close-btn" onclick="toggleMobileMenu()">×</div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="service.html">SERVICES</a></li>
+        <li><a href="fleet.html">FLEET</a></li>
+        <li><a href="booking.html">BOOKING</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+    <style>
+    /* Add this to your existing styles */
+    
+    /* Mobile Navigation Fixes */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      height: 100vh;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      z-index: 1001;
+      padding: 20px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .mobile-nav.show {
+      transform: translateX(0);
+      display: block;
+    }
+    
+    .mobile-nav-links {
+      list-style: none;
+      margin-top: 30px;
+    }
+    
+    .mobile-nav-links li {
+      margin-bottom: 20px;
+    }
+    
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+      display: block;
+      padding: 8px 0;
+    }
+    
+    .close-btn {
+      font-size: 24px;
+      text-align: right;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    
+    /* Ensure desktop nav is hidden on mobile */
+    @media (max-width: 767px) {
+      .nav-links {
+        display: none;
+      }
       
-        <!-- Wrap NAV + Button Together -->
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <nav>
-            <ul class="nav-links" style="display: flex; list-style: none; gap: 30px; font-size: 16px; font-weight: bold; margin: 0;">
-              <li><a href="index.html" style="text-decoration: none; color: black;">HOME</a></li>
-              <li><a href="about.html" style="text-decoration: none; color: black;">ABOUT US</a></li>
-              <li><a href="service.html" style="text-decoration: none; color: black;">SERVICES</a></li>
-              <li><a href="fleet.html" style="text-decoration: none; color: black;">FLEET</a></li>
-              <!-- <li><a href="investment.html" style="text-decoration: none; color: black;">INVESTMENTS</a></li> -->
-              <li><a href="booking.html" style="text-decoration: none; color: black;">BOOKING</a></li>
-              <li><a href="contact.html" style="text-decoration: none; color: black;">CONTACT US</a></li>
-            </ul>
-          </nav>
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+    <script>
+    // Replace all your existing JavaScript with this single function
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('show');
       
-        
-                 <!-- <button class="invest-btn" onclick="window.location.href='enquiry.html';" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
-  ENQUIRY NOW
-</button> -->
+      // Toggle body overflow to prevent scrolling when menu is open
+      if (mobileMenu.classList.contains('show')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+    
+    // Close menu when clicking on links
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('show');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+  <section class="hero">
+    <div class="hero-content">
+      <p>Blusky Jets – Born to Redefine Excellence</p>
+    </div>
+  </section>
+  
 
-          
+  <div class="specs-container">
+    <div class="specs-image">
+      <img src="./img/CJ1+-Exterior-JS1.jpg" alt="Private Jet">
+    </div>
+    <div class="specs-info">
+      <h2>SPECIFICATIONS</h2>
+      <div class="underline"></div>
+  
+      <div class="spec-row">
+        <div class="spec-item">
+          <p class="label">Seats</p>
+          <p class="value">8-15</p>
         </div>
-      </header>
-      
-      <section class="hero">
-        <div class="hero-content">
-          <!-- <h1>Blusky Jets </h1> -->
-          <!-- <p>Blusky Jets – Born to Redefine Excellence</p> -->
-           <p>Blusky Jets – Born to Redefine Excellence</p>
-        </div>
-      </section>
-
-      <div class="specs-container">
-        <div class="specs-image">
-          <img src="./img/CJ1+-Exterior-JS1.jpg" alt="Private Jet" style="height: 550px; width: 750px;">
-        </div>
-        <div class="specs-info">
-          <h2>SPECIFICATIONS</h2>
-          <div class="underline"></div>
-      
-          <div class="spec-row">
-            <div class="spec-item">
-              <p class="label">Seats</p>
-              <p class="value">8-15</p>
-            </div>
-            <div class="spec-item">
-              <p class="label">Baggage Capacity</p>
-              <p class="value">50–80 cubic feet</p>
-            </div>
-          </div>
-      
-          <div class="line"></div>
-      
-          <div class="spec-row">
-            <div class="spec-item">
-              <p class="label">Speed</p>
-              <p class="value">400–500 mph</p>
-            </div>
-            <div class="spec-item">
-              <p class="label">Range</p>
-              <p class="value">1,200–1,800 miles</p>
-            </div>
-          </div>
-      
-          <div class="line"></div>
-      
-          <div class="spec-row">
-            <div class="spec-item">
-              <p class="label">Interior Width</p>
-              <p class="value">4.5–5.0 feet</p>
-            </div>
-            <div class="spec-item">
-              <p class="label">Interior Height</p>
-              <p class="value">4.5–4.9 feet</p>
-            </div>
-          </div>
+        <div class="spec-item">
+          <p class="label">Baggage Capacity</p>
+          <p class="value">50–80 cubic feet</p>
         </div>
       </div>
-      
-
-      <div class="hero-section">
-        <div class="left-content" style="color: #000;">
-          <h1 >LUXURY AND COMFORT—<br> ELEVATED, WORLDWIDE</h1>
-          <!-- <div class="underline"></div> -->
-          <p style="color: #000;">Elevate your expectations with Blusky Jets—where luxury meets seamless travel. Experience unparalleled comfort and sophistication as we redefine private aviation.</p>
-          <p style="color: #000;">Step into a world of exclusivity and refinement. Each journey is carefully curated to ensure impeccable service and absolute privacy. With Blusky Jets, every detail is thoughtfully designed to deliver a smooth and stress-free experience.</p>
-          <p style="color: #000;">Our fleet of state-of-the-art aircraft embodies excellence and innovation. Whether for business or leisure, our clients enjoy the highest standards of safety, reliability, and elegance.</p>
-          <p style="color: #000;">Indulge in bespoke travel tailored to your every need. From the moment you board, our professional crew is dedicated to exceeding expectations, making every flight exceptional.</p>
-          <p style="color: #000;">Discover the art of flying with Blusky Jets—where journeys are as memorable as the destinations.</p>
+  
+      <div class="line"></div>
+  
+      <div class="spec-row">
+        <div class="spec-item">
+          <p class="label">Speed</p>
+          <p class="value">400–500 mph</p>
         </div>
-        <div class="right-image">
-          <img src="./img/fleet.png" alt="Blusky Jets Interior" />
+        <div class="spec-item">
+          <p class="label">Range</p>
+          <p class="value">1,200–1,800 miles</p>
         </div>
       </div>
-
-      <div class="luxury-section">
-        <div class="image-section">
-          <img src="./img/fleet1.png" alt="Luxury Meal on Flight" />
+  
+      <div class="line"></div>
+  
+      <div class="spec-row">
+        <div class="spec-item">
+          <p class="label">Interior Width</p>
+          <p class="value">4.5–5.0 feet</p>
         </div>
-        <div class="text-section">
-          <h2>Blusky Jets – REDEFINING LUXURY AIR TRAVEL</h2>
-          <p>At Blusky Jets, we transcend boundaries, delivering unparalleled aviation experiences for business, politics, entertainment, and beyond. From facilitating military operations and medical evacuations to marine searches, firefighting missions, tourism, commerce, and supporting global sports teams, our flights have been at the forefront of pivotal moments.</p>
-          <p>We have transported Heads of State to events that shaped history and nations. Whether flying seasoned jet-setters or first-time flyers, we create journeys of a lifetime. Our aircraft have delivered intricate mining equipment, powering billion-dollar industries and driving economic growth.</p>
-          <p><strong>Blusky Jets</strong>—where luxury meets purpose, and every flight is an extraordinary experience.</p>
+        <div class="spec-item">
+          <p class="label">Interior Height</p>
+          <p class="value">4.5–4.9 feet</p>
         </div>
       </div>
+    </div>
+  </div>
+  
 
+  <div class="hero-section">
+    <div class="left-content">
+      <h1>LUXURY AND COMFORT—<br> ELEVATED, WORLDWIDE</h1>
+      <p>Elevate your expectations with Blusky Jets—where luxury meets seamless travel. Experience unparalleled comfort and sophistication as we redefine private aviation.</p>
+      <p>Step into a world of exclusivity and refinement. Each journey is carefully curated to ensure impeccable service and absolute privacy. With Blusky Jets, every detail is thoughtfully designed to deliver a smooth and stress-free experience.</p>
+      <p>Our fleet of state-of-the-art aircraft embodies excellence and innovation. Whether for business or leisure, our clients enjoy the highest standards of safety, reliability, and elegance.</p>
+      <p>Indulge in bespoke travel tailored to your every need. From the moment you board, our professional crew is dedicated to exceeding expectations, making every flight exceptional.</p>
+      <p>Discover the art of flying with Blusky Jets—where journeys are as memorable as the destinations.</p>
+    </div>
+    <div class="right-image">
+      <img src="./img/fleet.png" alt="Blusky Jets Interior">
+    </div>
+  </div>
 
-          
+  <div class="luxury-section">
+    <div class="image-section">
+      <img src="./img/fleet1.png" alt="Luxury Meal on Flight">
+    </div>
+    <div class="text-section">
+      <h2>Blusky Jets – REDEFINING LUXURY AIR TRAVEL</h2>
+      <p>At Blusky Jets, we transcend boundaries, delivering unparalleled aviation experiences for business, politics, entertainment, and beyond. From facilitating military operations and medical evacuations to marine searches, firefighting missions, tourism, commerce, and supporting global sports teams, our flights have been at the forefront of pivotal moments.</p>
+      <p>We have transported Heads of State to events that shaped history and nations. Whether flying seasoned jet-setters or first-time flyers, we create journeys of a lifetime. Our aircraft have delivered intricate mining equipment, powering billion-dollar industries and driving economic growth.</p>
+      <p><strong>Blusky Jets</strong>—where luxury meets purpose, and every flight is an extraordinary experience.</p>
+    </div>
+  </div>
+
   <section class="hero-sections">
     <h1>Book Your Private Jet<br>with Blusky Jets</h1>
     <p>
       Blusky Jets is proud to be among the elite in the industry, recognized for our commitment to excellence.
       As one of the few companies meeting the highest standards in private aviation, we deliver unparalleled safety,
       quality, and service you can trust.
-      <!-- <br>We pride ourselves on offering a professional and personalised service. -->
     </p>
-      <a href="booking.html">
-  <button class="btn">BOOK NOW</button>
-</a>
-  </section>
-
-<style>
-    
-  .hero-sections {
-    /* background-color: #0a2147; */
-    background-image: url('./img/background-imf.png'); /* Optional pattern */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: #e0d6c7;
-    text-align: center;
-    padding: 90px 20px;
-    /* height: 400px; */
-  }
-
-  .hero-sections h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    line-height: 1.4;
-    margin: 0 0 20px;
-  }
-
-  .hero-sections p {
-    font-size: 15px;
-    color: #c9c9c9;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    line-height: 1.6;
-  }
-
-  .hero-sections .btn {
-    border: 1.5px solid #fff;
-    padding: 12px 30px;
-    background-color: transparent;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .hero-sections .btn:hover {
-    background-color: #fff;
-    color: #0a2147;
-  }
-
-  @media (max-width: 768px) {
-    .hero-sections h1 {
-      font-size: 28px;
-    }
-
-    .hero-sections p {
-      font-size: 14px;
-    }
-  }
-
-
-</style>
-
-  <!-- Next Steps Section -->
-<section class="next-steps">
-    <h2>LET'S TAKE THE NEXT STEPS</h2>
-    <div class="buttons">
-      <a href="contact.html">
-  <button class="outline-btn">CONTACT US</button>
-</a>
-      <button class="outline-btn">Blusky Jets BROCHURE</button>
-    </div>
-  </section>
-  
-  <!-- Footer -->
- <footer class="footer">
-    <div class="footer-links">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-  <!-- <a href="#">PRIVATE TERMINALS</a> -->
-  <span>© 2025 Blusky Jets, All Rights Reserved. Designed and developed by
-    <a href="https://shashwathagroups.in" target="_blank" style="text-decoration: none; color: inherit;">
-      Shaswatha Groups
+    <a href="booking.html">
+      <button class="btn">BOOK NOW</button>
     </a>
-  </span>
-      </div>
-</div>
-    <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61576879101436" aria-label="Facebook">
-          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z" /></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/finaxa-investments-930a6b367/
+  </section>
 
-" aria-label="LinkedIn">
-  <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 
-      0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 
-      0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 
-      1.75-.78 1.75-1.75 1.75zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
-      0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.76 
-      1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
-  </svg>
-</a>
-        <a href="#" aria-label="Instagram">
-          <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
+  <footer class="footer">
+    <div class="footer-links">
+      <span>© 2025 Blusky Jets, All Rights Reserved. Designed and developed by
+        <a href="https://shashwathagroups.in" target="_blank" style="text-decoration: none; color: inherit;">
+          Shaswatha Groups
         </a>
-      </div>
-      
-  </footer>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/7715841612" target="_blank" class="whatsapp-tab">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </span>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61577201976549" aria-label="Facebook">
+        <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M22,12A10,10 0 1,0 12,22V14.5H9.5V12H12V9.5C12,7.57 13.57,6 15.5,6H18V8.5H15.5C14.67,8.5 14,9.17 14,10V12H18L17.5,14.5H14V22A10,10 0 0,0 22,12Z"/></svg>
       </a>
-      <style>
-        /* WhatsApp Tab Styling */
-        .whatsapp-tab {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          z-index: 1000;
-          background-color: #25d366;
-          border-radius: 50%;
-          width: 60px;
-          height: 60px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .whatsapp-tab:hover {
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-          transform: scale(1.05);
-        }
-        
-        .whatsapp-tab img {
-          width: 35px;
-          height: 35px;
-        }
+      <a href="https://www.linkedin.com/company/finaxa-investments/about/?viewAsMember=true" aria-label="LinkedIn">
+        <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/finaxainvestments/" aria-label="Instagram">
+        <svg fill="#ffffff" width="20" height="20" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 3A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.5Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8Zm5.5-1.75a1 1 0 1 1-1.001 1.001A1 1 0 0 1 17.5 6.25Z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/7715841612" target="_blank" class="whatsapp-tab">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('show');
+    }
     
-        @media (max-width: 768px) {
-          .whatsapp-tab {
-            width: 50px;
-            height: 50px;
-          }
-    
-          .whatsapp-tab img {
-            width: 30px;
-            height: 30px;
-          }
-        }
-      </style>
-      
+    // Close mobile menu when clicking on a link
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('show');
+      });
+    });
+  </script>
 </body>
 </html>
-      <style>
-        .hero {
-  background: url('img/citation-cj1-1.jpg') no-repeat center center/cover;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Move to right */
-  position: relative;
-  color: #fff;
-  text-align: right;
-  padding-right: 250px;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 500px; /* Set maximum width */
-  white-space: nowrap; /* ✨ Prevent breaking into two lines */
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.5rem;
-}
-
-
-
-.specs-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 40px 20px;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.specs-image img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.specs-info {
-  max-width: 500px;
-}
-
-.specs-info h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #000;
-}
-
-.underline {
-  width: 40px;
-  height: 3px;
-  background-color: #0d3d91;
-  margin-bottom: 30px;
-}
-
-.spec-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 20px;
-}
-
-.spec-item {
-  flex: 1;
-}
-
-.label {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 6px;
-}
-
-.value {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000;
-}
-
-.line {
-  height: 1px;
-  background-color: #ddd;
-  margin: 10px 0 20px;
-}
-
-.hero-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 60px;
-  background-color: #e5e5e5;
-}
-
-.left-content {
-  flex: 1 1 55%;
-  padding-right: 40px;
-}
-
-.left-content h1 {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 15px;
-}
-
-.underline {
-  width: 60px;
-  height: 3px;
-  background-color: #003366;
-  margin-bottom: 25px;
-}
-
-.left-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 18px;
-}
-
-.right-image {
-  flex: 1 1 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.right-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-
-.luxury-section {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 60px 40px;
-  gap: 40px;
-}
-
-.image-section {
-  flex: 1 1 45%;
-}
-
-.image-section img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.text-section {
-  flex: 1 1 50%;
-}
-
-.text-section h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #111;
-}
-
-.text-section p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 18px;
-  color: #333;
-}
-      </style>
-
-
